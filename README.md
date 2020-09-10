@@ -569,106 +569,106 @@ Se o seu projeto planeja liberar DLC ou tem vários sub-projetos associados a el
 
 Durante o desenvolvimento de um projeto, é muito comum que os membros da equipe tenham uma espécie de 'sandbox' onde podem experimentar livremente sem arriscar o projeto principal. Como esse trabalho pode estar em andamento, esses membros da equipe podem desejar colocar seus assets em um servidor Source Control do projeto. Nem todas as equipes exigem o uso de pastas de desenvolvedor, mas aquelas que as usam costumam ter um problema comum com ativos submetidos ao servidor Source Control.
 
-É muito fácil para um membro da equipe usar acidentalmente assets que não estão prontos para uso, o que causará problemas quando esses assets forem removidos. Por exemplo, um artista pode estar iterando em um conjunto modular de static meshs e ainda trabalhando para obter o tamanho e o encaixe da grade corretos. Se um level designer vir esses assets na pasta principal do projeto, ele pode usá-los em um nível sem saber que podem estar sujeitos a mudanças e / ou remoções. Isso causa uma grande quantidade de retrabalho de todos na equipe para resolver.
+É muito fácil para um membro da equipe usar acidentalmente assets que não estão prontos para uso, o que causará problemas quando esses assets forem removidos. Por exemplo, um artista pode estar iterando em um conjunto modular de static meshs e ainda trabalhando para obter o tamanho e o encaixe da grade corretos. Se um world builders vir esses assets na pasta principal do projeto, ele pode usá-los em um nível sem saber que podem estar sujeitos a mudanças e / ou remoções. Isso causa uma grande quantidade de retrabalho de todos na equipe para resolver.
 
-Se esses ativos modulares fossem colocados em uma pasta de desenvolvedor, o Level Designer nunca deveria ter um motivo para usá-los e todo o problema nunca aconteceria. O Navegador de conteúdo tem opções de exibição específicas que ocultam as pastas do desenvolvedor (elas ficam ocultas por padrão), tornando impossível o uso acidental de ativos do desenvolvedor em uso normal.
+Se esses ativos modulares fossem colocados em uma pasta de desenvolvedor, o world builders nunca deveria ter um motivo para usá-los e todo o problema nunca aconteceria. O Navegador de conteúdo tem opções de exibição específicas que ocultam as pastas do desenvolvedor (elas ficam ocultas por padrão), tornando impossível o uso acidental de ativos do desenvolvedor em uso normal.
 
 Depois que os recursos estão prontos para uso, o artista simplesmente precisa mover os recursos para a pasta específica do projeto e corrigir os redirecionadores. Isso é essencialmente 'promover' os ativos do experimental para a produção.
 
 <a name="2.4"></a>
 <a name="structure-maps"></a>
-### 2.4 All Map[<sup>*</sup>](#terms-level-map) Files Belong In A Folder Called Maps ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 2.4 Todos os arquivos .Map[<sup>*</sup>](#terms-level-map) Pertencem A Uma Pasta Chamada Maps
 
-Map files are incredibly special and it is common for every project to have its own map naming system, especially if they work with sub-levels or streaming levels. No matter what system of map organization is in place for the specific project, all levels should belong in `/Content/Project/Maps`.
+Os arquivos de mapa são incrivelmente especiais e é comum que cada projeto tenha seu próprio sistema de nomenclatura de mapa, especialmente se trabalhar com sub-levels ou streaming levels. Não importa qual sistema de organização de mapas está em vigor para o projeto específico, todos os níveis devem pertencer a `/Content/Project/Maps`.
 
-Being able to tell someone to open a specific map without having to explain where it is is a great time saver and general 'quality of life' improvement. It is common for levels to be within sub-folders of `Maps`, such as `Maps/Campaign1/` or `Maps/Arenas`, but the most important thing here is that they all exist within `/Content/Project/Maps`.
+Ser capaz de dizer a alguém para abrir um mapa específico sem ter que explicar onde ele está é uma grande economia de tempo e uma melhoria geral da 'qualidade de vida'. É comum os níveis estarem em subpastas de `Maps`, como `Maps/Campaign1/`ou `Maps/Arenas`, mas o mais importante aqui é que todos eles existem em `/Content/Project/Maps`.
 
-This also simplifies the job of cooking for engineers. Wrangling levels for a build process can be extremely frustrating if they have to dig through arbitrary folders for them. If a team's maps are all in one place, it is much harder to accidentally not cook a map in a build. It also simplifies lighting build scripts as well as QA processes.
+Isso também simplifica o trabalho de fazer o cooking para os engenheiros. Combinar os níveis de um processo de compilação pode ser extremamente frustrante se eles tiverem que vasculhar pastas arbitrárias para eles. Se os mapas de uma equipe estão todos em um lugar, é muito mais difícil acidentalmente não criar um mapa em uma construção. Ele também simplifica os scripts de construção de iluminação, bem como os processos de controle de qualidade.
 
 <a name="2.5"></a>
 <a name="structure-core"></a>
-### 2.5 Use A `Core` Folder For Critical Blueprints And Other Assets ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 2.5 Use Uma Pasta `Core` Para Blueprints Importantes E Outros Assets
 
-Use `/Content/Project/Core` folder for assets that are absolutely fundamental to a project's workings. For example, base `GameMode`, `Character`, `PlayerController`, `GameState`, `PlayerState`, and related Blueprints should live here.
+Use a pasta `/Content/Project/Core` para assets que são absolutamente fundamentais para o funcionamento de um projeto. Por exemplo, `GameMode`,` Character`, `PlayerController`,` GameState`, `PlayerState` e Blueprints relacionados devem estar aqui.
 
-This creates a very clear "don't touch these" message for other team members. Non-engineers should have very little reason to enter the `Core` folder. Following good code structure style, designers should be making their gameplay tweaks in child classes that expose functionality. World builders should be using prefab Blueprints in designated folders instead of potentially abusing base classes.
+Isso cria uma mensagem muito clara "não toque neles" para os outros membros da equipe. Os não engenheiros devem ter muito poucos motivos para entrar na pasta `Core`. Seguindo um bom estilo de estrutura de código, os designers devem fazer seus ajustes de jogabilidade em classes filhas que expõem a funcionalidade. Os World builders deveriam usar Blueprints pré-fabricados em pastas designadas em vez de abusar potencialmente das classes base.
 
-For example, if your project requires pickups that can be placed in a level, there should exist a base Pickup class in `Core/Pickups` that defines base behavior for a pickup. Specific pickups such as a Health or Ammo should exist in a folder such as `/Content/Project/Placeables/Pickups/`. Game designers can define and tweak pickups in this folder however they please, but they should not touch `Core/Pickups` as they may unintentionally break pickups project-wide.
+Por exemplo, se seu projeto requer pirckups que podem ser colocados em um level, deve existir uma classe base de pickup em `Core/Pickups` que define o comportamento básico para um Pickup. Pickups específicos como Saúde ou Munição devem existir em uma pasta como `/Content/Project/Placeables/Pickups/`. Os game designers podem definir e ajustar pickups nesta pasta da maneira que quiserem, mas eles não devem tocar em `Core / Pickups`, pois podem quebrar pickups involuntariamente em todo o projeto.
 
 <a name="2.6"></a>
 <a name="structure-assettypes"></a>
-### 2.6 Do Not Create Folders Called `Assets` or `AssetTypes` ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 2.6 Não Crie Pastas Chamadas `Assets` ou `AssetTypes`
 
 <a name="2.6.1"></a>
-#### 2.6.1 Creating a folder named `Assets` is redundant. ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 2.6.1 Criar uma pasta chamada `Assets` é redundante.
 
-All assets are assets.
+Todos os assets são assets.
 
 <a name="2.6.2"></a>
-#### 2.6.2 Creating a folder named `Meshes`, `Textures`, or `Materials` is redundant. ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 2.6.2 Criar uma pasta chamada `Meshes`, `Textures`, ou `Materials` é redundante.
 
-All asset names are named with their asset type in mind. These folders offer only redundant information and the use of these folders can easily be replaced with the robust and easy to use filtering system the Content Browser provides.
+Todos os nomes de assets são nomeados com seu tipo de asset em mente. Essas pastas oferecem apenas informações redundantes e o uso dessas pastas pode ser facilmente substituído pelo sistema de filtragem robusto e fácil de usar que o Content Browser fornece.
 
-Want to view only static mesh in `Environment/Rocks/`? Simply turn on the Static Mesh filter. If all assets are named correctly, they will also be sorted in alphabetical order regardless of prefixes. Want to view both static meshes and skeletal meshes? Simply turn on both filters. This eliminates the need to potentially have to `Control-Click` select two folders in the Content Browser's tree view.
+Quer ver apenas a malha estática em `Environment/Rocks/`? Basta ativar o filtro Static Mesh. Se todos os assets forem nomeados corretamente, eles também serão classificados em ordem alfabética, independentemente dos prefixos. Deseja visualizar static meshes e skeletal meshes? Basta ligar os dois filtros. Isso elimina a necessidade de selecionar duas pastas com `Control-Click` na visualização em árvore do Content Browser.
 
-> This also extends the full path name of an asset for very little benefit. The `S_` prefix for a static mesh is only two characters, whereas `Meshes/` is seven characters.
+> Isso também estende o nome do caminho completo de um asset para muito poucos benefícios. O prefixo `S_` para uma malha estática tem apenas dois caracteres, enquanto` Meshes/ `tem sete caracteres.
 
-Not doing this also prevents the inevitability of someone putting a static mesh or a texture in a `Materials` folder.
+Não fazer isso também evita a inevitabilidade de alguém colocar uma malha estática ou uma textura em uma pasta de `Materials`.
 
 <a name="2.7"></a>
 <a name="structure-large-sets"></a>
-### 2.7 Very Large Asset Sets Get Their Own Folder Layout ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 2.7 Conjuntos De Assets Muito Grandes Obtêm Seu Próprio Layout De Pasta
 
-This can be seen as a pseudo-exception to [2.6](#2.6).
+Isso pode ser visto como uma pseudo-exceção para [2.6] (# 2.6).
 
-There are certain asset types that have a huge volume of related files where each asset has a unique purpose. The two most common are Animation and Audio assets. If you find yourself having 15+ of these assets that belong together, they should be together.
+Existem certos tipos de asset que têm um grande volume de arquivos relacionados, onde cada asset  tem uma finalidade única. Os dois mais comuns são asset de animação e áudio. Se você tiver mais de 15 desses asset que pertencem um ao outro, eles deveriam estar juntos.
 
-For example, animations that are shared across multiple characters should lay in `Characters/Common/Animations` and may have sub-folders such as `Locomotion` or `Cinematic`.
+Por exemplo, as animações que são compartilhadas por vários personagens devem ser colocadas em `Characters/Common/Animations` e podem ter subpastas como` Locomotion` ou `Cinematic`.
 
-> This does not apply to assets like textures and materials. It is common for a `Rocks` folder to have a large amount of textures if there are a large amount of rocks, however these textures are generally only related to a few specific rocks and should be named appropriately. Even if these textures are part of a [Material Library](#2.8).
+> Isso não se aplica a assets como texturas e materiais. É comum que uma pasta `Rocks` tenha uma grande quantidade de texturas se houver uma grande quantidade de pedras, no entanto, essas texturas geralmente estão relacionadas apenas a algumas pedras específicas e devem ser nomeadas apropriadamente. Mesmo que essas texturas façam parte de uma [MaterialLibrary] (# 2.8).
 
 <a name="2.8"></a>
 <a name="structure-material-library"></a>
-### 2.8 `MaterialLibrary` ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 2.8 `MaterialLibrary`
 
-If your project makes use of master materials, layered materials, or any form of reusable materials or textures that do not belong to any subset of assets, these assets should be located in `Content/Project/MaterialLibrary`.
+Se o seu projeto faz uso de master materials, layered materials ou qualquer forma de materiais ou texturas reutilizáveis que não pertencem a nenhum subconjunto de assets, esses assets devem estar localizados em `Content/Project/MaterialLibrary`.
 
-This way all 'global' materials have a place to live and are easily located.
+Desta forma, todos os materiais 'globais' têm um lugar para morar e são facilmente localizados.
 
-> This also makes it incredibly easy to enforce a 'use material instances only' policy within a project. If all artists and assets should be using material instances, then the only regular material assets that should exist are within this folder. You can easily verify this by searching for base materials in any folder that isn't the `MaterialLibrary`.
+> Isso também torna incrivelmente fácil aplicar uma política de 'usar apenas instâncias de materiais' em um projeto. Se todos os artistas e assets deveriam estar usando material instances, então os únicos Assets de materiais regulares que deveriam existir estão dentro desta pasta. Você pode verificar isso facilmente procurando por materiais básicos em qualquer pasta que não seja a `MaterialLibrary`.
 
-The `MaterialLibrary` doesn't have to consist of purely materials. Shared utility textures, material functions, and other things of this nature should be stored here as well within folders that designate their intended purpose. For example, generic noise textures should be located in `MaterialLibrary/Utility`.
+O `MaterialLibrary` não precisa consistir apenas em materiais. Texturas de utilitários compartilhadas, material functions e outras coisas dessa natureza devem ser armazenadas aqui também em pastas que indicam a finalidade pretendida. Por exemplo, texturas de noise genéricas devem estar localizadas em `MaterialLibrary/Utility`.
 
-Any testing or debug materials should be within `MaterialLibrary/Debug`. This allows debug materials to be easily stripped from a project before shipping and makes it incredibly apparent if production assets are using them if reference errors are shown.
+Qualquer material de teste ou depuração deve estar dentro de `MaterialLibrary/Debug`. Isso permite que os materiais de depuração sejam facilmente retirados de um projeto antes do envio e torna incrivelmente aparente se os ativos de produção os estão usando se forem mostrados erros de referência.
 
 <a name="2.9"></a>
 <a name="structure-no-empty-folders"></a>
-### 2.9 No Empty Folders ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 2.9 Sem Pastas Vazias
 
-There simply shouldn't be any empty folders. They clutter the content browser.
+Simplesmente não deve haver pastas vazias. Eles confundem o content browser.
 
-If you find that the content browser has an empty folder you can't delete, you should perform the following:
-1. Be sure you're using source control.
-1. Immediately run Fix Up Redirectors on your project.
-1. Navigate to the folder on-disk and delete the assets inside.
-1. Close the editor.
-1. Make sure your source control state is in sync (i.e. if using Perforce, run a Reconcile Offline Work on your content directory)
-1. Open the editor. Confirm everything still works as expected. If it doesn't, revert, figure out what went wrong, and try again.
-1. Ensure the folder is now gone.
-1. Submit changes to source control.
+Se você achar que o content browser tem uma pasta vazia que não pode ser excluída, faça o seguinte:
+1. Certifique-se de usar o Source Control.
+1. Execute imediatamente Fix Up Redirectors em seu projeto.
+1. Navegue até a pasta no disco e exclua os ativos dentro dela.
+1. Feche o editor.
+1. Certifique-se de que seu estado do Source Control está sincronizado (ou seja, se estiver usando Perforce, execute um Reconcile Offline Work em seu diretório de conteúdo)
+1. Abra o editor. Confirme se tudo ainda funciona conforme o esperado. Caso contrário, reverta, descubra o que deu errado e tente novamente.
+1. Certifique-se de que a pasta tenha desaparecido.
+1. Envie as alterações para o Source Control.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Voltar ao Topo](#table-of-contents)**
 
 
 <a name="3"></a>
 <a name="bp"></a>
-## 3. Blueprints ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+## 3. Blueprints
 
-This section will focus on Blueprint classes and their internals. When possible, style rules conform to [Epic's Coding Standard](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
+Esta seção se concentrará nas classes Blueprint e seus componentes internos. Quando possível, as regras de estilo estão em conformidade com o [Epic's Coding Standard] (https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
 
-Remember: Blueprinting badly bears blunders, beware! (Phrase by [KorkuVeren](http://github.com/KorkuVeren))
+Lembre-se: o projeto não suporta erros graves, cuidado! (Frase de [KorkuVeren] (http://github.com/KorkuVeren))
 
-### Sections
+### Seções
 
 > 3.1 [Compiling](#bp-compiling)
 
@@ -680,21 +680,21 @@ Remember: Blueprinting badly bears blunders, beware! (Phrase by [KorkuVeren](htt
 
 <a name="3.1"></a>
 <a name="bp-compiling"></a>
-### 3.1 Compiling ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 3.1 Compiling
 
-All blueprints should compile with zero warnings and zero errors. You should fix blueprint warnings and errors immediately as they can quickly cascade into very scary unexpected behavior.
+Todos os blueprints devem ser compilados com nenhum aviso e nenhum erro. Você deve corrigir os avisos e erros do blueprint imediatamente, pois eles podem rapidamente se transformar em um comportamento inesperado muito assustador.
 
-Do *not* submit broken blueprints to source control. If you must store them on source control, shelve them instead.
+* Não * envie projetos corrompidos ao controle de origem. Se você precisar armazená-los no controle de origem, arquive-os.
 
-Broken blueprints can cause problems that manifest in other ways, such as broken references, unexpected behavior, cooking failures, and frequent unneeded recompilation. A broken blueprint has the power to break your entire game.
+Projetos corrompidos podem causar problemas que se manifestam de outras maneiras, como referências quebradas, comportamento inesperado, falhas de cooking e recompilação desnecessária frequente. Um projeto quebrado tem o poder de quebrar todo o seu jogo.
 
 <a name="3.2"></a>
 <a name="bp-vars"></a>
-### 3.2 Variables ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+### 3.2 Variables
 
-The words `variable` and `property` may be used interchangeably.
+As palavras `variable` e` property` podem ser usadas indistintamente.
 
-#### Sections
+#### Seções
 
 > 3.2.1 [Naming](#bp-vars)
 
@@ -712,22 +712,22 @@ The words `variable` and `property` may be used interchangeably.
 
 <a name="3.2.1"></a>
 <a name="bp-var-naming"></a>
-#### 3.2.1 Naming ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+#### 3.2.1 Naming
 
 <a name="3.2.1.1"></a>
 <a name="bp-var-naming-nouns"></a>
-##### 3.2.1.1 Nouns ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+##### 3.2.1.1 Substantivos
 
-All non-boolean variable names must be clear, unambiguous, and descriptive nouns.
+Todos os nomes de variáveis não booleanas devem ser substantivos claros, não ambíguos e descritivos.
 
 <a name="3.2.1.2"></a>
 <a name="bp-var-naming-case"></a>
-##### 3.2.1.2 PascalCase ![#](https://img.shields.io/badge/lint-supported-green.svg)
+##### 3.2.1.2 PascalCase
 
-All non-boolean variables should be in the form of [PascalCase](#terms-cases).
+Todas as variáveis não booleanas devem estar na forma de[PascalCase](#terms-cases).
 
-<a name="3.2.1.2e"></a>
-###### 3.2.1.2e Examples:
+<a name="3.2.1.2.1"></a>
+###### 3.2.1.2.1 Exemplos:
 
 * `Score`
 * `Kills`
@@ -738,46 +738,46 @@ All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 
 <a name="3.2.1.3"></a>
 <a name="bp-var-bool-prefix"></a>
-##### 3.2.1.3 Boolean `b` Prefix ![#](https://img.shields.io/badge/lint-supported-green.svg)
+##### 3.2.1.3 Boolean `b` Prefix
 
-All booleans should be named in PascalCase but prefixed with a lowercase `b`.
+Todos as booleanas devem ser nomeadas em PascalCase, mas prefixadas com `b` minúsculo.
 
-Example: Use `bDead` and `bEvil`, **not** `Dead` and `Evil`.
+Exemplo: Use `bDead` e` bEvil`, ** não ** `Dead` e` Evil`.
 
-UE4 Blueprint editors know not to include the `b` in user-friendly displays of the variable.
+Os editores do UE4 Blueprint não devem incluir o `b` em exibições user-friendly da variável.
 
 <a name="3.2.1.4"></a>
 <a name="bp-var-bool-names"></a>
-##### 3.2.1.4 Boolean Names ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+##### 3.2.1.4 Boolean Names
 
 <a name="3.2.1.4.1"></a>
-###### 3.2.1.4.1 General And Independent State Information ![#](https://img.shields.io/badge/lint-supported-green.svg)
+###### 3.2.1.4.1 Informações Gerais e de Estados Independentes
 
-All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as `Is`. This is reserved for functions.
+Todos as booleanas devem ser nomeadas como adjetivos descritivos, quando possível, se representarem informações gerais. Não inclua palavras que expressem a variável como uma pergunta, como `Is`. Isso é reservado para funções.
 
-Example: Use `bDead` and `bHostile` **not** `bIsDead` and `bIsHostile`.
+Exemplo: Use `bDead` e` bHostile` ** e não ** `bIsDead` e` bIsHostile`.
 
-Try to not use verbs such as `bRunning`. Verbs tend to lead to complex states.
+Tente não usar verbos como `bRunning`. Os verbos tendem a levar a estados complexos.
 
 <a name="3.2.1.4.2"></a>
-###### 3.2.1.4.2 Complex States ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+###### 3.2.1.4.2 Estados Complexos
 
-Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
+Não use booleanas para representar estados complexos e / ou dependentes. Isso torna a adição e remoção de estados complexa e não mais facilmente legível. Em vez disso, use uma enumeração.
 
-Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if a weapon can't be both reloading and equipping. Define an enumeration named `EWeaponState` and use a variable with this type named `WeaponState` instead. This makes it far easier to add new states to weapons.
+Exemplo: Ao definir uma arma, ** não ** use `bReloading` e` bEquipping` se uma arma não puder recarregar e equipar. Defina uma enumeração chamada `EWeaponState` e use uma variável com este tipo chamada` WeaponState`. Isso torna muito mais fácil adicionar novos estados às armas.
 
-Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
+Exemplo: ** não ** use `bRunning` se também precisar de` bWalking` ou `bSprinting`. Isso deve ser definido como uma enumeração com nomes de estado claramente definidos.
 
 <a name="3.2.1.5"></a>
 <a name="bp-vars-naming-context"></a>
-##### 3.2.1.5 Considered Context ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+##### 3.2.1.5 Considere o Contexto
 
-All variable names must not be redundant with their context as all variable references in Blueprint will always have context.
+Todos os nomes de variáveis não devem ser redundantes com seu contexto, pois todas as referências de variáveis no Blueprint sempre terão contexto.
 
 <a name="3.2.1.5e"></a>
-###### 3.2.1.5e Examples:
+###### 3.2.1.5e Exemplos:
 
-Consider a Blueprint called `BP_PlayerCharacter`.
+Considere um Blueprint chamado `BP_PlayerCharacter`.
 
 **Bad**
 
@@ -788,7 +788,7 @@ Consider a Blueprint called `BP_PlayerCharacter`.
 * `CharacterSkills`
 * `ChosenCharacterSkin`
 
-All of these variables are named redundantly. It is implied that the variable is representative of the `BP_PlayerCharacter` it belongs to because it is `BP_PlayerCharacter` that is defining these variables.
+Todas essas variáveis são nomeadas de forma redundante. Está implícito que a variável é representativa do `BP_PlayerCharacter` ao qual pertence, porque é` BP_PlayerCharacter` que está definindo essas variáveis.
 
 **Good**
 
@@ -801,93 +801,93 @@ All of these variables are named redundantly. It is implied that the variable is
 
 <a name="3.2.1.6"></a>
 <a name="bp-vars-naming-atomic"></a>
-##### 3.2.1.6 Do _Not_ Include Atomic Type Names ![#](https://img.shields.io/badge/lint-supported-green.svg)
+##### 3.2.1.6 _Não_ Inclua Nomes de Tipos Atômicos
 
-Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.
+Variáveis atômicas ou primitivas são variáveis que representam dados em sua forma mais simples, como booleanos, inteiros, flutuantes e enumerações.
 
-Strings and vectors are considered atomic in terms of style when working with Blueprints, however they are technically not atomic.
+Strings e vetores são considerados atômicos em termos de estilo ao trabalhar com Blueprints, no entanto, eles não são tecnicamente atômicos.
 
-> While vectors consist of three floats, vectors are often able to be manipulated as a whole, same with rotators.
+> Embora os vetores consistam em três floats, os vetores geralmente podem ser manipulados como um todo, o mesmo com os rotators.
 
-> Do _not_ consider Text variables as atomic, they are secretly hiding localization functionality. The atomic type of a string of characters is `String`, not `Text`.
+> _Não_ considere as variáveis de texto como atômicas, elas ocultam secretamente a funcionalidade de localização. O tipo atômico de uma string de caracteres é `String`, não` Text`.
 
-Atomic variables should not have their type name in their name.
+Variáveis atômicas não devem ter seu nome de tipo em seu nome.
 
-Example: Use `Score`, `Kills`, and `Description` **not** `ScoreFloat`, `FloatKills`, `DescriptionString`.
+Exemplo: Use `Score`,` Kills` e `Description` ** e não **` ScoreFloat`, `FloatKills`,` DescriptionString`.
 
-The only exception to this rule is when a variable represents 'a number of' something to be counted _and_ when using a name without a variable type is not easy to read.
+A única exceção a esta regra é quando uma variável representa 'um número de' algo a ser contado _e_ quando usar um nome sem um tipo de variável não é fácil de ler.
 
-Example: A fence generator needs to generate X number of posts. Store X in `NumPosts` or `PostsCount` instead of `Posts` as `Posts` may potentially read as an Array of a variable type named `Post`.
+Exemplo: Um Fence Generator precisa gerar um número X de posts. Armazene o X em `NumPosts` ou` PostsCount` em vez de `Posts`, pois` Posts` podem potencialmente ser lidos como um Array de um tipo de variável chamado `Post`.
 
 <a name="3.2.1.7"></a>
 <a name="bp-vars-naming-complex"></a>
-##### 3.2.1.7 Do Include Non-Atomic Type Names ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+##### 3.2.1.7 Inclua Nomes De Tipo Não Atômico
 
-Non-atomic or complex variables are variables that represent data as a collection of atomic variables. Structs, Classes, Interfaces, and primitives with hidden behavior such as `Text` and `Name` all qualify under this rule.
+Variáveis não atômicas ou complexas são variáveis que representam dados como uma coleção de variáveis atômicas. Structs, Classes, Interfaces e primitivos com comportamento oculto, como `Texto` e` Nome`, todos se qualificam sob esta regra.
 
-> While an Array of an atomic variable type is a list of variables, Arrays do not change the 'atomicness' of a variable type.
+> Embora um Array de um tipo de variável atômica seja uma lista de variáveis, os Arrays não mudam a 'atomicidade' de um tipo de variável.
 
-These variables should include their type name while still considering their context.
+Essas variáveis devem incluir seu nome de tipo, ainda considerando seu contexto.
 
-If a class owns an instance of a complex variable, i.e. if a `BP_PlayerCharacter` owns a `BP_Hat`, it should be stored as the variable type as without any name modifications.
+Se uma classe possui uma instância de uma variável complexa, ou seja, se um `BP_PlayerCharacter` possui um` BP_Hat`, ele deve ser armazenado como o tipo de variável, sem qualquer modificação de nome.
 
-Example: Use `Hat`, `Flag`, and `Ability` **not** `MyHat`, `MyFlag`, and `PlayerAbility`.
+Exemplo: Use `Hat`,` Flag` e `Ability` ** e não **` MyHat`, `MyFlag` e` PlayerAbility`.
 
-If a class does not own the value a complex variable represents, you should use a noun along with the variable type.
+Se uma classe não possui o valor que uma variável complexa representa, você deve usar um substantivo junto com o tipo de variável.
 
-Example: If a `BP_Turret` has the ability to target a `BP_PlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `BP_Turret` it should be clear that it is a reference to another complex variable type that it does not own.
+Exemplo: Se um `BP_Turret` tem a capacidade de direcionar um` BP_PlayerCharacter`, ele deve armazenar seu destino como `TargetPlayer` como quando no contexto de` BP_Turret` deve ficar claro que é uma referência a outro tipo de variável complexa que ele não possui.
 
 
 <a name="3.2.1.8"></a>
 <a name="bp-vars-naming-arrays"></a>
-##### 3.2.1.8 Arrays ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+##### 3.2.1.8 Arrays
 
-Arrays follow the same naming rules as above, but should be named as a plural noun.
+Os arrays seguem as mesmas regras de nomenclatura acima, mas devem ser nomeados como um substantivo no plural.
 
-Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatArray`, `EnemyPlayerArray`.
+Exemplo: use `Targets`,` Hats` e `EnemyPlayers`, ** não **` TargetList`, `HatArray`,` EnemyPlayerArray`.
 
 
 <a name="3.2.2"></a>
 <a name="bp-vars-editable"></a>
-#### 3.2.2 Editable Variables ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+#### 3.2.2 Variáveis Editáveis
 
-All variables that are safe to change the value of in order to configure behavior of a blueprint should be marked as `Editable`.
+Todas as variáveis que podem ser alteradas com segurança para configurar o comportamento de um blueprint devem ser marcadas como `Editáveis`.
 
-Conversely, all variables that are not safe to change or should not be exposed to designers should _not_ be marked as editable, unless for engineering reasons the variable must be marked as `Expose On Spawn`.
+Por outro lado, todas as variáveis que não são seguras para alterar ou não devem ser expostas aos designers _não_ devem ser marcadas como editáveis, a menos que por razões de engenharia a variável deva ser marcada como `Expose On Spawn`.
 
-Do not arbitrarily mark variables as `Editable`.
+Não marque variáveis arbitrariamente como `Editable`.
 
 <a name="3.2.2.1"></a>
 <a name="bp-vars-editable-tooltips"></a>
-##### 3.2.2.1 Tooltips ![#](https://img.shields.io/badge/lint-supported-green.svg)
+##### 3.2.2.1 Tooltips
 
-All `Editable` variables, including those marked editable just so they can be marked as `Expose On Spawn`, should have a description in their `Tooltip` fields that explains how changing this value affects the behavior of the blueprint.
+Todas as variáveis `Editable`, incluindo aquelas marcadas como editáveis apenas para que possam ser marcadas como` Expose On Spawn`, devem ter uma descrição em seus campos `Tooltip` que explica como alterar este valor afeta o comportamento do blueprint.
 
 <a name="3.2.2.2"></a>
 <a name="bp-vars-editable-ranges"></a>
-##### 3.2.2.2 Slider And Value Ranges ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+##### 3.2.2.2 Slider e Value Ranges
 
-All `Editable` variables should make use of slider and value ranges if there is ever a value that a variable should _not_ be set to.
+Todas as variáveis `editáveis` devem fazer uso do slider e value ranges se houver um valor para o qual uma variável _não_ deve ser definida.
 
-Example: A blueprint that generates fence posts might have an editable variable named `PostsCount` and a value of -1 would not make any sense. Use the range fields to mark 0 as a minimum.
+Exemplo: Um blueprint que gera postes de cerca pode ter uma variável editável chamada `PostsCount` e um valor -1 não faria nenhum sentido. Use os campos de intervalo para marcar 0 como o mínimo.
 
-If an editable variable is used in a Construction Script, it should have a reasonable Slider Range defined so that someone can not accidentally assign it a large value that could crash the editor.
+Se uma variável editável for usada em um Script de Construção, ela deve ter um Slider Range razoável definido para que alguém não possa acidentalmente atribuir a ela um valor grande que pode travar o editor.
 
-A Value Range only needs to be defined if the bounds of a value are known. While a Slider Range prevents accidental large number inputs, an undefined Value Range allows a user to specify a value outside the Slider Range that may be considered 'dangerous' but still valid.
+Um Value Range só precisa ser definido se os limites de um valor forem conhecidos. Enquanto um Slider Range evita entradas acidentais de grandes números, um Value Range indefinido permite que um usuário especifique um valor fora do Slider Range que pode ser considerado 'perigoso', mas ainda válido.
 
 <a name="3.2.3"></a>
 <a name="bp-vars-categories"></a>
-#### 3.2.3 Categories ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 3.2.3 Categories
 
-If a class has only a small number of variables, categories are not required.
+Se uma classe tiver apenas um pequeno número de variáveis, as categorias não são necessárias.
 
-If a class has a moderate amount of variables (5-10), all `Editable` variables should have a non-default category assigned. A common category is `Config`.
+Se uma classe tem uma quantidade moderada de variáveis (5-10), todas as variáveis `Editable` devem ter uma categoria não padrão atribuída. Uma categoria comum é `Config`.
 
-If a class has a large amount of variables, all `Editable` variables should be categorized into sub-categories using the category `Config` as the base category. Non-editable variables should be categorized into descriptive categories describing their usage. 
+Se uma classe tem uma grande quantidade de variáveis, todas as variáveis `Editable` devem ser categorizadas em subcategorias usando a categoria` Config` como a categoria base. Variáveis não editáveis devem ser categorizadas em categorias descritivas que descrevem seu uso.
 
-> You can define sub-categories by using the pipe character `|`, i.e. `Config | Animations`.
+> Você pode definir subcategorias usando a barra vertical `|`, ou seja, `Config | Animations`.
 
-Example: A weapon class set of variables might be organized as:
+Exemplo: um conjunto de variáveis de classe de arma pode ser organizado como:
 
 	|-- Config
 	|	|-- Animations
@@ -901,61 +901,61 @@ Example: A weapon class set of variables might be organized as:
 
 <a name="3.2.4"></a>
 <a name="bp-vars-access"></a>
-#### 3.2.4 Variable Access Level ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.2.4 Variable Access Level
 
-In C++, variables have a concept of access level. Public means any code outside the class can access the variable. Protected means only the class and any child classes can access this variable internally. Private means only this class and no child classes can access this variable.
+Em C ++, as variáveis têm um conceito de nível de acesso. Public significa que qualquer código fora da classe pode acessar a variável. Protected significa que apenas a classe e quaisquer classes filhas podem acessar essa variável internamente. Private significa que apenas esta classe e nenhuma classe filha pode acessar esta variável.
 
-Blueprints do not have a defined concept of protected access currently.
+Os blueprints não têm um conceito definido de acesso Protected atualmente.
 
-Treat `Editable` variables as public variables. Treat non-editable variables as protected variables.
+Trate as variáveis `Editable` como variáveis public. Trate as variáveis não editáveis como variáveis protegidas.
 
 <a name="3.2.4.1"></a>
 <a name="bp-vars-access-private"></a>
-##### 3.2.4.1 Private Variables ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+##### 3.2.4.1 Private Variables
 
-Unless it is known that a variable should only be accessed within the class it is defined and never a child class, do not mark variables as private. Until variables are able to be marked `protected`, reserve private for when you absolutely know you want to restrict child class usage.
+A menos que se saiba que uma variável só deve ser acessada dentro da classe em que está definida e nunca em uma classe filha, não marque as variáveis como private. Até que as variáveis possam ser marcadas como `protected`, reserve privado para quando você tiver certeza absoluta de que deseja restringir o uso da classe filha.
 
 <a name="3.2.5"></a>
 <a name="bp-vars-advanced"></a>
-#### 3.2.5 Advanced Display ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.2.5 Advanced Display
 
-If a variable should be editable but often untouched, mark it as `Advanced Display`. This makes the variable hidden unless the advanced display arrow is clicked.
+Se uma variável deve ser editável, mas frequentemente intocada, marque-a como `Advanced Display`. Isso torna a variável oculta, a menos que a seta de exibição avançada seja clicada.
 
-To find the `Advanced Display` option, it is listed as an advanced displayed variable in the variable details list.
+Para encontrar a opção `Advanced Display`, ela é listada como uma advanced displayed variable na lista de detalhes da variável.
 
 <a name="3.2.6"></a>
 <a name="bp-vars-transient"></a>
-#### 3.2.6 Transient Variables ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.2.6 Transient Variables
 
-Transient variables are variables that do not need to have their value saved and loaded and have an initial value of zero or null. This is useful for references to other objects and actors who's value isn't known until run-time. This prevents the editor from ever saving a reference to it, and speeds up saving and loading of the blueprint class.
+Variáveis transitórias são variáveis que não precisam ter seu valor salvo e carregado e possuem um valor inicial igual a zero ou nulo. Isso é útil para referências a outros objetos e atores cujo valor não é conhecido até o tempo de execução. Isso evita que o editor salve uma referência a ele e acelera o salvamento e o carregamento da classe de blueprint.
 
-Because of this, all transient variables should always be initialized as zero or null. To do otherwise would result in hard to debug errors.
+Por causa disso, todas as variáveis transientes sempre devem ser inicializadas como zero ou nulas. Fazer o contrário resultaria em erros difíceis de depurar.
 
 <a name="3.2.7"></a>
 <a name="bp-vars-config"></a>
-#### 3.2.8 Config Variables ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 3.2.8 Config Variables
 
-Do not use the `Config Variable` flag. This makes it harder for designers to control blueprint behavior. Config variables should only be used in C++ for rarely changed variables. Think of them as `Advanced Advanced Display` variables.
+Não use o sinalizador `Config Variable`. Isso torna mais difícil para os designers controlar o comportamento do blueprint. Variáveis de configuração só devem ser usadas em C ++ para variáveis raramente alteradas. Pense neles como variáveis de `Advanced Advanced Display`.
 
 <a name="3.3"></a>
 <a name="bp-functions"></a>
-### 3.3 Functions, Events, and Event Dispatchers ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 3.3 Functions, Events, e Event Dispatchers
 
-This section describes how you should author functions, events, and event dispatchers. Everything that applies to functions also applies to events, unless otherwise noted.
+Esta seção descreve como você deve criar functions, events e event dispatchers. Tudo o que se aplica a funções também se aplica a eventos, a menos que indicado de outra forma.
 
 <a name="3.3.1"></a>
 <a name="bp-funcs-naming"></a>
-#### 3.3.1 Function Naming ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.3.1 Function Naming
 
-The naming of functions, events, and event dispatchers is critically important. Based on the name alone, certain assumptions can be made about functions. For example:
+A nomenclatura de functions, events e event dispatchers é extremamente importante. Com base apenas no nome, certas suposições podem ser feitas sobre as funções. Por exemplo:
 
-* Is it a pure function?
-* Is it fetching state information?
-* Is it a handler?
-* Is it an RPC?
-* What is its purpose?
+* É uma função pura?
+* Ele está buscando informações de estado?
+* É um manipulador?
+* É um RPC?
+* Qual é seu propósito?
 
-These questions and more can all be answered when functions are named appropriately.
+Essas perguntas e muito mais podem ser respondidas quando as funções são nomeadas apropriadamente.
 
 <a name="3.3.1.1"></a>
 <a name="bp-funcs-naming-verbs"></a>
