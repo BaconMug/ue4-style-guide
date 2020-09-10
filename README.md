@@ -1,126 +1,101 @@
-# [Gamemakin](https://gamemak.in) UE4 Style Guide() {
+# UE4 Style Guide
 
-*A mostly reasonable approach to Unreal Engine 4*
+*Uma abordagem rasoavelmente adequada para a Unreal Engine 4*
 
-Heavily inspired by the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript).
-
-[![Analytics](https://ga-beacon.appspot.com/UA-80567399-1/repo?useReferrer)](#) ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+Traduzido e adaptado deste [guia](https://github.com/Allar/ue4-style-guide)
 
 ## Unreal Engine 4 Linter Plugin
 
-An automated method of checking your project against this style guide is available for purchase at [the Unreal Engine marketplace](https://www.unrealengine.com/marketplace/linter). This plugin's source code will eventually be free, but in order to use with UE4 without building the engine from source code, please use the marketplace version.
+Um método automatico para checar o seu projeto está de acordo com este guia esta disponivel no [Marketplace](https://www.unrealengine.com/marketplace/en-US/product/linter-v2).
 
-## Linter and Style Guide Documentation
+## Linter e Documentação do Guia de Estilo
 
-More technical documentation regarding Linter and the Style Guide can be found at our [ReadTheDocs](https://ue4-style-guide.readthedocs.io/en/latest/) page.
+A documentação mais técnica sobre o plugin e este Guia de Estilo pode ser encontrada neste [link](https://ue4-style-guide.readthedocs.io/en/latest/).
 
-## Discuss This Style Guide
+## Terminologia Importante
 
-Gamemakin LLC has a public Discord channel at http://discord.gamemak.in with a #linter channel if you'd like to discuss all things style guide and Linter plugin.
-
-## Linking To This Document
-
-Every section of this style guide is numbered for both easy reference and easy linking. You can link to any section directly by simply append a hash tag and the section number to the end of http://ue4.style
-For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in http://ue4.style#0.1.
-
-## Forks And Translations
-
-If you have made a notable fork or translation that is not suitable for a pull request into this repo, please submit a pull request to add the fork or translation here.
-
-* [Korean Translation](https://github.com/ymkim50/ue4-style-guide/blob/master/README_Kor.md) by ymkim50
-* [Russian Translation](https://github.com/CosmoMyzrailGorynych/ue4-style-guide-rus/blob/master/README.md) by CosmoMyzrailGorynych
-* [Japanese Translation](https://github.com/akenatsu/ue4-style-guide/blob/master/README.jp.md) by akenatsu
-* [Chinese Translation](https://github.com/skylens-inc/ue4-style-guide/blob/master/README.md) by Beijing Skylens Tech.
-
-## Important Terminology
-
-<a name="terms-level-map"></a>
 ##### Levels/Maps
 
-The word 'map' generally refers to what the average person calls a 'level' and may be used interchangeably. See this term's history [here](https://en.wikipedia.org/wiki/Level_(video_gaming)).
+A palavra "map" geralmente se refere ao que uma pessoa comum chama de "level" que pode ser usada também sem problemas. Veja um histórico do termo [aqui](https://en.wikipedia.org/wiki/Level_(video_gaming)).
 
-<a name="terms-cases"></a>
 ##### Cases
 
-There are a few different ways you can name things. Here are some common casing types:
+Existem algumas diferentes formas que você pode usar para nomear coisas. Os tipos de cases mais comuns são:
 
 > ###### PascalCase
 >
-> Capitalize every word and remove all spaces, e.g. `DesertEagle`, `StyleGuide`, `ASeriesOfWords`.
+> Coloque em maiúsculo toda primeira letra de cada palavra e remova espaços e caracteres especiais: `DesertEagle`, `StyleGuide`, `ASeriesOfWords`.
 > 
 > ###### camelCase
 >
-> The first letter is always lowercase but every following word starts with uppercase, e.g. `desertEagle`, `styleGuide`, `aSeriesOfWords`.
+> A primeira letra da primeira palavra sempre será minuscula e todas as próximas palavras começam com maiúscula: `desertEagle`, `styleGuide`, `aSeriesOfWords`.
 >
 > ###### Snake_case
 >
-> Words can arbitrarily start upper or lowercase but words are separated by an underscore, e.g. `desert_Eagle`, `Style_Guide`, `a_Series_of_Words`.
+> Palavras podem começar com maiúscula ou minúscula mas as palavras são separadas por underline: `desert_Eagle`, `Style_Guide`, `a_Series_of_Words`.
 
-<a name="terms-var-prop"></a>
-##### Variables / Properties
+##### Variaveis / Propriedades
 
-The words 'variable' and 'property' in most contexts are interchangable. If they are both used together in the same context however:
+As palavras "variável" e "propriedade" na maioria dos contextos se referem a mesma coisa. Mas se ambas forem usadas no mesmo contexto:
 
-<a name="terms-property"></a>
-###### Property 
-Usually refers to a variable defined in a class. For example, if `BP_Barrel` had a variable `bExploded`, `bExploded` may be referred to as a property of `BP_Barrel`. 
+###### Propriedade
+Normalmente se refere a uma variável definida dentro de uma classe. Por exemplo, se `BP_Barrel` tem uma variável `bExploded`, `bExploded` pode ser referida com uma propriedade do `BP_Barrel`. 
 
-When in the context of a class, often used to imply accessing previously defined data.
+Quando usada no contexto de uma classe, é mais usado para dizer que você está acessando uma informação definida anteriormente.
 
-<a name="terms-variable"></a>
-###### Variable 
-Usually refers to a variable defined as a function argument or a local variable inside a function.
+###### Variável
+Normalmente se refere a  uma variável definida como um argumento de uma função ou uma variável local dentro de uma função.
 
-When in the context of a class, often used to convey discussion about its definition and what it will hold.
+Quando no contexto de uma classe, é mais usada para  discutir sobre uma definição e qual o valor que ela tem.
 
 <a name="0"></a>
-## 0. Principles
+## 0. Princípios
 
-These principles have been adapted from [idomatic.js style guide](https://github.com/rwaldron/idiomatic.js/).
+Estes principios foram adaptados do [idomatic.js style guide](https://github.com/rwaldron/idiomatic.js/).
 
 <a name="0.1"></a>
-### 0.1 If your UE4 project already has a style guide, you should follow it.
+### 0.1 Se o seu projeto na Unreal já utiliza um Guia de Estilo, você deve segui-lo.
 
-If you are working on a project or with a team that has a pre-existing style guide, it should be respected.  Any inconsistency between an existing style guide and this guide should defer to the existing.
+Se você está trabalhando em um projeto ou em um time que já tenha um Guia de Estilo pré-definido, você deve respeitá-lo. Qualquer inconsistência ente um Guia de Estilo atual e esse Guia de Estilo deve se preferir o que já existe.
 
-Style guides should be living documents however and you should propose style guide changes to an existing style guide as well as this guide if you feel the change benefits all usages.
+Guais de Estilos devem sem documentos dinâmicos, no entanto você deve propor mudanças ao Guia de Estilo existente com base nesse guia se você achar que pode beneficiar todos os usos.
 
-> #### "Arguments over style are pointless. There should be a style guide, and you should follow it."
+> #### "Argumentos contra estilos não tem sentido. Deve exister um guia de estilo, e você deve segui-lo."
 > [_Rebecca Murphey_](https://rmurphey.com)
 
 <a name="0.2"></a>
-### 0.2 All structure, assets, and code in any Unreal Engine 4 project should look like a single person created it, no matter how many people contributed.
+### 0.2 Toda as estrutura, assets e códigos em um projeto da Unreal Engine 4 deve parecer que foi escrito por uma única pessoa, Não importa quantas pessoas tenham contribuído.
 
-Moving from one project to another should not cause a re-learning of style and structure. Conforming to a style guide removes unneeded guesswork and ambiguities.
+Mudar de um projeto para outro não deve causar um reaprendizado de estilo e estrutura. A conformidade com um guia de estilo remove suposições e ambigüidades desnecessárias.
 
-It also allows for more productive creation and maintenance as one does not need to think about style, simply follow instructions. This style guide is written with best practices in mind, meaning that by following this style guide you will also minimize hard to track issues.
+Também permite uma criação e manutenção mais produtivas, pois não é necessário pensar no estilo, basta seguir as instruções. Este guia de estilo foi escrito com as práticas recomendadas em mente, o que significa que, ao seguir este guia de estilo, você também minimizará problemas difíceis de controlar.
 
 <a name="0.3"></a>
-### 0.3 Friends do not let friends have bad style.
+### 0.3 Amigos não deixam outros amigos terem um estilo ruim.
 
-If you see someone working either against a style guide or no style guide, try to correct them.
+Se você vir alguém trabalhando contra um guia de estilo ou nenhum guia de estilo, tente corrigi-lo.
 
-When working within a team or discussing within a community such as [Unreal Slackers](http://join.unrealslackers.org/), it is far easier to help and to ask for help when people are consistent. Nobody likes to help untangle someone's Blueprint spaghetti or deal with assets with names they can't understand.
+Ao trabalhar em uma equipe ou discutir em uma comunidade como [Unreal Slackers] (http://join.unrealslackers.org/), é muito mais fácil ajudar e pedir ajuda quando as pessoas são consistentes. Ninguém gosta de ajudar a desemaranhar o espaguete do Blueprint de alguém ou lidar com ativos com nomes que eles não conseguem entender.
 
-If you are helping someone who's work conforms to a different but consistent and sane style guide, you should be able to adapt to it. If they do not conform to any style guide, please direct them here.
+Se você está ajudando alguém cujo trabalho segue um guia de estilo diferente, mas consistente e lógico, você deve ser capaz de se adaptar a ele. Se eles não estiverem de acordo com nenhum guia de estilo, indique-os esse guia de estilo.
 
 <a name="0.4"></a>
-### 0.4 A team without a style guide is no team of mine.
+### 0.4 Uma equipe sem um guia de estilo não é uma equipe minha.
 
-When joining an Unreal Engine 4 team one of your first questions should be "Do you have a style guide?". If the answer is no, you should be skeptical about their ability to work as a team.
+Ao ingressar em uma equipe Unreal Engine 4, uma de suas primeiras perguntas deve ser "Você tem um guia de estilo?". Se a resposta for não, você deve ser cético quanto à capacidade deles de trabalhar em equipe.
 
 <a name="0.5"></a>
-### 0.5 Don't Break The Law
+### 0.5 Não quebre a lei.
 
-Gamemakin LLC is not a lawyer, but please don't introduce illegal actions and behavior to a project, including but not limited to:
+Não somos advogados, mas por favor, não introduza ações e comportamentos ilegais em um projeto, incluindo, mas não se limitando a:
 
-* Don't distribute content you don't have the rights to distribute
-* Don't infringe on someone else's copyrighted or trademark material
-* Don't steal content
-* Follow licensing restrictions on content, e.g. attribute when attributions are needed
+* Não distribua conteúdo para o qual você não tem os direitos de distribuição
+* Não infrinja materiais com direitos autorais ou marca registrada de outra pessoa
+* Não roube conteúdo
+* Siga as restrições de licenciamento de conteúdo
 
 <a name="toc"></a>
-## Table of Contents
+## Indice.
 
 > 1. [Asset Naming Conventions](#anc)
 > 1. [Directory Structure](#structure)
@@ -132,32 +107,32 @@ Gamemakin LLC is not a lawyer, but please don't introduce illegal actions and be
 
 <a name="anc"></a>
 <a name="1"></a>
-## 1. Asset Naming Conventions ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+## 1. Asset Naming Conventions
 
-Naming conventions should be treated as law. A project that conforms to a naming convention is able to have its assets managed, searched, parsed, and maintained with incredible ease.
+As convenções de nomenclatura devem ser tratadas como lei. Um projeto que está em conformidade com uma convenção de nomenclatura pode ter seus assets gerenciados, pesquisados, analisados e mantidos com uma facilidade incrível.
 
-Most things are prefixed with prefixes being generally an acronym of the asset type followed by an underscore.
+Muitas coisas são prefixadas com prefixos sendo geralmente um acrônimo do tipo de asset seguido por um underline.
 
 <a name="base-asset-name"></a>
 <a name="1.1"></a>
-### 1.1 Base Asset Name - `Prefix_BaseAssetName_Variant_Suffix` ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+### 1.1 Base Asset Name - `Prefix_BaseAssetName_Variant_Suffix`
 
-All assets should have a _Base Asset Name_. A Base Asset Name represents a logical grouping of related assets. Any asset that is part of this logical group should follow the standard of  `Prefix_BaseAssetName_Variant_Suffix`.
+Todos os assets devem ter um _BaseAssetName_. Um nome de asset representa um agrupamento lógico de assets relacionados. Qualquer asset que faça parte deste grupo lógico deve seguir o padrão de `Prefix_BaseAssetName_Variant_Suffix`.
 
-Keeping the pattern `Prefix_BaseAssetName_Variant_Suffix` and in mind and using common sense is generally enough to warrant good asset names. Here are some detailed rules regarding each element.
+Manter o padrão `Prefix_BaseAssetName_Variant_Suffix` em mente e usar o bom senso geralmente é suficiente para garantir bons nomes de assets. Aqui estão algumas regras detalhadas sobre cada elemento.
 
-`Prefix` and `Suffix` are to be determined by the asset type through the following [Asset Name Modifier](#asset-name-modifiers) tables.
+`Prefix` e` Suffix` devem ser determinados pelo tipo de asset por meio das seguintes tabela [Asset Name Modifier] (#asset-name-modifiers).
 
-`BaseAssetName` should be determined by a short and easily recognizable name related to the context of this group of assets. For example, if you had a character named Bob, all of Bob's assets would have the `BaseAssetName` of `Bob`.
+`BaseAssetName` deve ser determinado por um nome curto e facilmente reconhecível relacionado ao contexto deste grupo de assets. Por exemplo, se você tivesse um personagem chamado Bob, todos os recursos de Bob teriam o `BaseAssetName` de` Bob`.
 
-For unique and specific variations of assets, `Variant` is either a short and easily recognizable name that represents logical grouping of assets that are a subset of an asset's base name. For example, if Bob had multiple skins these skins should still use `Bob` as the `BaseAssetName` but include a recognizable `Variant`. An 'Evil' skin would be referred to as `Bob_Evil` and a 'Retro' skin would be referred to as `Bob_Retro`.
+Para variações exclusivas e específicas de assets, `Variant` é um nome curto e facilmente reconhecível que representa o agrupamento lógico de assets que são um subconjunto do BaseAssetName. Por exemplo, se Bob tinha vários skins, esses skins ainda deveriam usar `Bob` como` BaseAssetName`, mas incluir uma `Variant` reconhecível. Um skin 'Evil' seria referido como `Bob_Evil` e um skin 'Retro' seria referido como` Bob_Retro`.
 
-For unique but generic variations of assets, `Variant` is a two digit number starting at `01`. For example, if you have an environment artist generating nondescript rocks, they would be named `Rock_01`, `Rock_02`, `Rock_03`, etc. Except for rare exceptions, you should never require a three digit variant number. If you have more than 100 assets, you should consider organizing them with different base names or using multiple variant names.
+Para variações exclusivas, mas genéricas, de assets, `Variant` é um número de dois dígitos começando em` 01`. Por exemplo, se você tem um environment artist gerando rochas indefinidas, eles seriam chamados de `Rock_01`,` Rock_02`, `Rock_03`, etc. Exceto para raras exceções, você nunca deve exigir um número variante de três dígitos. Se você tiver mais de 100 assets, deve considerar organizá-los com BaseAssetName diferentes ou usando vários nomes de variantes.
 
-Depending on how your asset variants are made, you can chain together variant names. For example, if you are creating flooring assets for an Arch Viz project you should use the base name `Flooring` with chained variants such as `Flooring_Marble_01`, `Flooring_Maple_01`, `Flooring_Tile_Squares_01`.
+Dependendo de como suas variações de assets são feitas, você pode encadear nomes de variações. Por exemplo, se você estiver criando assets de piso para um projeto Arch Viz, você deve usar o nome base `Flooring` com variações encadeadas como` Flooring_Marble_01`, `Flooring_Maple_01`,` Flooring_Tile_Squares_01`.
 
 <a name="1.1-examples"></a>
-#### 1.1 Examples
+#### 1.1 Exemplos
 
 ##### 1.1e1 Bob
 
@@ -181,9 +156,9 @@ Depending on how your asset variants are made, you can chain together variant na
 
 <a name="asset-name-modifiers"></a>
 <a name="1.2"></a>
-### 1.2 Asset Name Modifiers ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 1.2 Asset Name Modifiers
 
-When naming an asset use these tables to determine the prefix and suffix to use with an asset's [Base Asset Name](#base-asset-name).
+Ao nomear um asset, use essas tabelas para determinar o prefixo e o sufixo a serem usados com um asset [Base Asset Name](#base-asset-name).
 
 #### Sections
 
@@ -213,11 +188,11 @@ When naming an asset use these tables to determine the prefix and suffix to use 
 
 <a name="anc-common"></a>
 <a name="1.2.1"></a>
-#### 1.2.1 Most Common ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 1.2.1 Most Common
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
-| Level / Map             |            |            | [Should be in a folder called Maps.](#2.4) |
+| Level / Map             |            |            | [Deve estar em uma pasta chamada Maps.](#2.4) |
 | Level (Persistent)      |            | _P         |                                  |
 | Level (Audio)           |            | _Audio     |                                  |
 | Level (Lighting)        |            | _Lighting  |                                  |
@@ -225,15 +200,15 @@ When naming an asset use these tables to determine the prefix and suffix to use 
 | Level (Gameplay)        |            | _Gameplay  |                                  |
 | Blueprint               | BP_        |            |                                  |
 | Material                | M_         |            |                                  |
-| Static Mesh             | S_         |            | Many use SM_. We use S_.         |
+| Static Mesh             | S_         |            | Muitos usam SM_. nós usamos S_.         |
 | Skeletal Mesh           | SK_        |            |                                  |
-| Texture                 | T_         | _?         | See [Textures](#anc-textures)    |
+| Texture                 | T_         | _?         | Veja [Textures](#anc-textures)    |
 | Particle System         | PS_        |            |                                  |
 | Widget Blueprint        | WBP_       |            |                                  |
 
 <a name="anc-animations"></a>
 <a name="1.2.2"></a>
-#### 1.2.2 Animations ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 1.2.2 Animations
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -254,7 +229,7 @@ When naming an asset use these tables to determine the prefix and suffix to use 
 
 <a name="anc-ai"></a>
 <a name="1.2.3"></a>
-### 1.2.3 Artificial Intelligence ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 1.2.3 Artificial Intelligence
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -274,18 +249,18 @@ When naming an asset use these tables to determine the prefix and suffix to use 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Blueprint               | BP_        |            |                                  |
-| Blueprint Component	  | BP_	       | Component  | I.e. BP_InventoryComponent       |
+| Blueprint Component	  | BP_	       | Component  | Ex. BP_InventoryComponent        |
 | Blueprint Function Library | BPFL_   |            |                                  |
 | Blueprint Interface     | BPI_       |            |                                  |
-| Blueprint Macro Library | BPML_      |            | Do not use macro libraries if possible. |
-| Enumeration             | E          |            | No underscore.                   |
-| Structure               | F or S     |            | No underscore.                   |
+| Blueprint Macro Library | BPML_      |            |                                  |
+| Enumeration             | E          |            | Sem Underline.                   |
+| Structure               | F or S     |            | Sem Underline.                   |
 | Tutorial Blueprint      | TBP_       |            |                                  |
 | Widget Blueprint        | WBP_       |            |                                  |
 
 <a name="anc-materials"></a>
 <a name="1.2.5"></a>
-### 1.2.5 Materials ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 1.2.5 Materials
 
 | Asset Type                    | Prefix     | Suffix     | Notes                            |
 | ----------------------------- | ---------- | ---------- | -------------------------------- |
@@ -315,7 +290,7 @@ When naming an asset use these tables to determine the prefix and suffix to use 
 | Texture (Mask)          | T_         | _M         |                                  |
 | Texture (Specular)      | T_         | _S         |                                  |
 | Texture (Metallic)      | T_         | _M         |                                  |
-| Texture (Packed)        | T_         | _*         | See notes below about [packing](#anc-textures-packing). |
+| Texture (Packed)        | T_         | _*         | Veja [packing](#anc-textures-packing). |
 | Texture Cube            | TC_        |            |                                  |
 | Media Texture           | MT_        |            |                                  |
 | Render Target           | RT_        |            |                                  |
@@ -324,16 +299,17 @@ When naming an asset use these tables to determine the prefix and suffix to use 
 
 <a name="anc-textures-packing"></a>
 <a name="1.2.6.1"></a>
-#### 1.2.6.1 Texture Packing ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
-It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack the given suffix letters from above together, e.g. `_ERO`.
+#### 1.2.6.1 Texture Packing
 
-> It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo's alpha channel and as this is common practice, adding `A` to the `_D` suffix is optional.
+É comum compactar várias camadas de dados de textura em uma textura. Um exemplo disso é empacotar Emissive, Roughness, Ambient Occlusion juntos como os canais Vermelho, Verde e Azul de uma textura, respectivamente. Para determinar o sufixo, basta empilhar as letras de sufixo fornecidas acima juntas, por exemplo, `_ERO`.
 
-Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo's alpha channel as a texture with an alpha channel incurs more overhead than one without.
+> É geralmente aceitável incluir uma camada Alpha / Opacity no canal Alpha de seu Diffuse / Albedo e como isso é uma prática comum, adicionar `A` ao sufixo` _D` é opcional.
+
+Empacotar 4 canais de dados em uma textura (RGBA) não é recomendado, exceto para uma máscara Alpha / Opacity no canal Alpha do Diffuse / Albedo, pois uma textura com um canal alfa incorre em mais overhead do que uma sem.
 
 <a name="anc-misc"></a>
 <a name="1.2.7"></a>
-### 1.2.7 Miscellaneous ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 1.2.7 Miscellaneous
 
 | Asset Type                 | Prefix     | Suffix     | Notes                            |
 | -------------------------- | ---------- | ---------- | -------------------------------- |
@@ -341,7 +317,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Camera Anim                | CA_        |            |                                  |
 | Color Curve                | Curve_     | _Color     |                                  |
 | Curve Table                | Curve_     | _Table     |                                  |
-| Data Asset                 | *_         |            | Prefix should be based on class. |
+| Data Asset                 | *_         |            | Prefix devem ser baseados na classe. |
 | Data Table                 | DT_        |            |                                  |
 | Float Curve                | Curve_     | _Float     |                                  |
 | Foliage Type               | FT_        |            |                                  |
@@ -351,7 +327,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Matinee Data               | Matinee_   |            |                                  |
 | Media Player               | MP_        |            |                                  |
 | Object Library             | OL_        |            |                                  |
-| Redirector                 |            |            | These should be fixed up ASAP.   |
+| Redirector                 |            |            | Eles devem ser corrigidos o mais rápido possível.   |
 | Sprite Sheet               | SS_        |            |                                  |
 | Static Vector Field        | VF_        |            |                                  |
 | Substance Graph Instance   | SGI_       |            |                                  |
@@ -361,7 +337,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 
 <a name="anc-paper2d"></a>
 <a name="1.2.8"></a>
-### 1.2.8 Paper 2D ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 1.2.8 Paper 2D
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -373,7 +349,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 
 <a name="anc-physics"></a>
 <a name="1.2.9"></a>
-### 1.2.9 Physics ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 1.2.9 Physics
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -383,7 +359,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 
 <a name="anc-sounds"></a>
 <a name="1.2.10"></a>
-### 1.2.10 Sounds ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 1.2.10 Sounds
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -392,15 +368,15 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Media Sound Wave        | MSW_       |            |                                  |
 | Reverb Effect           | Reverb_    |            |                                  |
 | Sound Attenuation       | ATT_       |            |                                  |
-| Sound Class             |            |            | No prefix/suffix. Should be put in a folder called SoundClasses |
-| Sound Concurrency       |            | _SC        | Should be named after a SoundClass |
+| Sound Class             |            |            | Sem prefix/suffix. Devem ser colocados em uma pasta chamada SoundClasses |
+| Sound Concurrency       |            | _SC        | Devem ser nomeados com a SoundClass |
 | Sound Cue               | A_         | _Cue       |                                  |
 | Sound Mix               | Mix_       |            |                                  |
 | Sound Wave              | A_         |            |                                  |
 
 <a name="anc-ui"></a>
 <a name="1.2.11"></a>
-### 1.2.11 User Interface ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 1.2.11 User Interface
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -411,14 +387,14 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 
 <a name="anc-effects"></a>
 <a name="1.2.12"></a>
-### 1.2.12 Effects ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 1.2.12 Effects
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Particle System         | PS_        |            |                                  |
 | Material (Post Process) | PP_        |            |                                  |
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Voltar ao topo](#table-of-contents)**
 
 
 <a name="2"></a>
