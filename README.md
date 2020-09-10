@@ -1,4 +1,4 @@
-# UE4 Style Guide
+# Guia de Estilo UE4
 
 *Uma abordagem rasoavelmente adequada para a Unreal Engine 4*
 
@@ -58,7 +58,7 @@ Estes principios foram adaptados do [idomatic.js style guide](https://github.com
 
 Se você está trabalhando em um projeto ou em um time que já tenha um Guia de Estilo pré-definido, você deve respeitá-lo. Qualquer inconsistência ente um Guia de Estilo atual e esse Guia de Estilo deve se preferir o que já existe.
 
-Guais de Estilos devem sem documentos dinâmicos, no entanto você deve propor mudanças ao Guia de Estilo existente com base nesse guia se você achar que pode beneficiar todos os usos.
+Guias de Estilos devem sem documentos dinâmicos, no entanto você deve propor mudanças ao Guia de Estilo existente com base nesse guia se você achar que pode beneficiar todos os usos.
 
 > #### "Argumentos contra estilos não tem sentido. Deve exister um guia de estilo, e você deve segui-lo."
 > [_Rebecca Murphey_](https://rmurphey.com)
@@ -134,7 +134,7 @@ Dependendo de como suas variações de assets são feitas, você pode encadear n
 <a name="1.1-examples"></a>
 #### 1.1 Exemplos
 
-##### 1.1e1 Bob
+##### 1.1.1 Bob
 
 | Asset Type              | Asset Name                                                 |
 | ----------------------- | ---------------------------------------------------------- |
@@ -144,7 +144,7 @@ Dependendo de como suas variações de assets são feitas, você pode encadear n
 | Texture (Normal)        | T_Bob_N                                                    |
 | Texture (Evil Diffuse)  | T_Bob_Evil_D                                               |
 
-##### 1.1e2 Rocks
+##### 1.1.2 Rocks
 
 | Asset Type              | Asset Name                                                 |
 | ----------------------- | ---------------------------------------------------------- |
@@ -399,13 +399,13 @@ Empacotar 4 canais de dados em uma textura (RGBA) não é recomendado, exceto pa
 
 <a name="2"></a>
 <a name="structure"></a>
-## 2. Content Directory Structure ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+## 2. Content Directory Structure
 
-Equally important as asset names, the directory structure style of a project should be considered law. Asset naming conventions and content directory structure go hand in hand, and a violation of either causes unneeded chaos.
+Tão importante quanto os nomes dos assets, o estilo da estrutura de diretório de um projeto deve ser considerado lei. As convenções de nomenclatura de assets e a estrutura do diretório de conteúdo andam de mãos dadas, e uma violação de qualquer uma delas causa um caos desnecessário.
 
-There are multiple ways to lay out the content of a UE4 project. In this style, we will be using a structure that relies more on filtering and search abilities of the Content Browser for those working with assets to find assets of a specific type instead of another common structure that groups asset types with folders.
+Existem várias maneiras de definir o conteúdo de um projeto UE4. Nesse estilo, usaremos uma estrutura que depende mais dos recursos de filtragem e pesquisa do Content Browser para aqueles que trabalham com assets para encontrar assets de um tipo específico em vez de outra estrutura comum que agrupa tipos de assets com pastas.
 
-> If you are using the prefix [naming convention](#1.2) above, using folders to contain assets of similar types such as `Meshes`, `Textures`, and `Materials` is a redundant practice as asset types are already both sorted by prefix as well as able to be filtered in the content browser.
+> Se você estiver usando o prefixo [convenção de nomenclatura] (# 1.2), usar pastas para conter assets de tipos semelhantes, como `Meshes`, `Textures`, and `Materials` é uma prática redundante, pois os tipos de assets já estão classificados por prefixo, além de poder ser filtrado no Content Browser.
 
 <a name="2e1"><a>
 ### 2e1 Example Project Content Structure
@@ -461,9 +461,9 @@ There are multiple ways to lay out the content of a UE4 project. In this style, 
             |-- Rifles
 </pre>
 
-The reasons for this structure are listed in the following sub-sections.
+Os motivos para essa estrutura estão listados nas subseções a seguir.
 
-### Sections
+### Seções
 
 > 2.1 [Folder Names](#structure-folder-names)
 
@@ -475,7 +475,7 @@ The reasons for this structure are listed in the following sub-sections.
 
 > 2.5 [Core](#structure-core)
 
-> 2.6 [`Assets` and `AssetTypes`](#structure-assettypes)
+> 2.6 [`Assets` e `AssetTypes`](#structure-assettypes)
 
 > 2.7 [Large Sets](#structure-large-sets)
 
@@ -484,96 +484,96 @@ The reasons for this structure are listed in the following sub-sections.
 
 <a name="2.1"></a>
 <a name="structure-folder-names"><a>
-### 2.1 Folder Names ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
-
-These are common rules for naming any folder in the content structure.
+### 2.1 Folder Names
+	
+Essas são regras comuns para nomear qualquer pasta na estrutura de conteúdo.
 
 <a name="2.1.1"></a>
-#### 2.1.1 Always Use PascalCase[<sup>*</sup>](#terms-cases) ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 2.1.1 Always Use PascalCase[<sup>*</sup>](#terms-cases)
 
-PascalCase refers to starting a name with a capital letter and then instead of using spaces, every following word also starts with a capital letter. For example, `DesertEagle`, `RocketPistol`, and `ASeriesOfWords`.
+PascalCase se refere a iniciar um nome com uma letra maiúscula e, em vez de usar espaços, todas as palavras seguintes também começam com uma letra maiúscula. Por exemplo, `DesertEagle`,` RocketPistol` e `ASeriesOfWords`.
 
-See [Cases](#terms-cases).
+Veja [Cases](#terms-cases).
 
 <a name="2.1.2"></a>
-#### 2.1.2 Never Use Spaces ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 2.1.2 Nunca Use Espaços
 
-Re-enforcing [2.1.1](#2.1.1), never use spaces. Spaces can cause various engineering tools and batch processes to fail. Ideally, your project's root also contains no spaces and is located somewhere such as `D:\Project` instead of `C:\Users\My Name\My Documents\Unreal Projects`.
+Reforçando [2.1.1] (# 2.1.1), nunca use espaços. Os espaços podem fazer com que várias ferramentas de engenharia e processos em lote falhem. Idealmente, a raiz do seu projeto também não contém espaços e está localizada em algum lugar como `D:\Project` em vez de `C:\Users\My Name\My Documents\Unreal Projects`.
 
 <a name="2.1.3"></a>
-#### 2.1.3 Never Use Unicode Characters And Other Symbols ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 2.1.3 Nunca Use Caracteres Unicode e Outros Simbolos
 
-If one of your game characters is named 'Zoë', its folder name should be `Zoe`. Unicode characters can be worse than [Spaces](#2.1.2) for engineering tool and some parts of UE4 don't support Unicode characters in paths either.
+Se um dos personagens do seu jogo se chama 'Zoë', o nome da pasta deve ser `Zoe`. Os caracteres Unicode podem ser piores do que [Espaços] (# 2.1.2) para a ferramenta de engenharia e algumas partes do UE4 também não suportam caracteres Unicode nos caminhos.
 
-Related to this, if your project has [unexplained issues](https://answers.unrealengine.com/questions/101207/undefined.html) and your computer's user name has a Unicode character (i.e. your name is `Zoë`), any project located in your `My Documents` folder will suffer from this issue. Often simply moving your project to something like `D:\Project` will fix these mysterious issues.
+Relacionado a isso, se o seu projeto tiver [problemas inexplicáveis] (https://answers.unrealengine.com/questions/101207/undefined.html) e o nome de usuário do seu computador tiver um caractere Unicode (ou seja, seu nome é `Zoë`), qualquer projeto localizado na pasta `Meus Documentos` sofrerá com esse problema. Freqüentemente, simplesmente mover seu projeto para algo como `D:\Project` irá corrigir esses problemas misteriosos.
 
-Using other characters outside `a-z`, `A-Z`, and `0-9` such as `@`, `-`, `_`, `,`, `*`, and `#` can also lead to unexpected and hard to track issues on other platforms, source control, and weaker engineering tools. 
+Usar outros caracteres fora de `az`,` AZ` e `0-9`, como` @ `,` -`, `_`,`, `,` * `e` # `também pode levar a problemas inesperados e difícil rastrear em outras plataformas, Source Control e ferramentas de engenharia mais fracas.
 
 <a name="2.2"></a>
 <a name="structure-top-level"><a>
-### 2.2 Use A Top Level Folder For Project Specific Assets ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 2.2 Use Uma Pasta De Nível Superior Para Assets Específicos Do Projeto
 
-All of a project's assets should exist in a folder named after the project. For example, if your project is named 'Generic Shooter', _all_ of it's content should exist in `Content/GenericShooter`.
+Todos os assets de um projeto devem existir em uma pasta com o nome do projeto. Por exemplo, se o seu projeto se chama 'Generic Shooter', _todo_ o seu conteúdo deve existir em `Content/GenericShooter`.
 
-> The `Developers` folder is not for assets that your project relies on and therefore is not project specific. See [Developer Folders](#2.3) for details about this.
+> A pasta `Developers` não é para assets dos quais seu projeto depende e, portanto, não é específica do projeto. Consulte [Developer Folders] (# 2.3) para obter detalhes sobre isso.
 
-There are multiple reasons for this approach.
+Existem várias razões para esta abordagem.
 
 <a name="2.2.1"></a>
-#### 2.2.1 No Global Assets
+#### 2.2.1 Sem Assets Globais
 
-Often in code style guides it is written that you should not pollute the global namespace and this follows the same principle. When assets are allowed to exist outside of a project folder it often becomes much harder to enforce a strict structure layout as assets not in a folder encourages the bad behavior of not having to organize assets.
+Freqüentemente, nos guias de estilo de código está escrito que você não deve poluir o namespace global e isso segue o mesmo princípio. Quando assets podem existir fora de uma pasta de projeto, geralmente se torna muito mais difícil impor um layout de estrutura estrito, pois assets que não estão em uma pasta encorajam o mau comportamento de não ter que organizar assets.
 
-Every asset should have a purpose, otherwise it does not belong in a project. If an asset is an experimental test and shouldn't be used by the project it should be put in a [`Developer`](#2.3) folder.
+Todo asset deve ter um propósito, caso contrário, ele não pertence a um projeto. Se um asset é um teste experimental e não deve ser usado pelo projeto, ele deve ser colocado em uma pasta [`Developer`] (# 2.3).
 
 <a name="2.2.2"></a>
-#### 2.2.2 Reduce Migration Conflicts
+#### 2.2.2 Reduzir Conflitos De Migração
 
-When working on multiple projects it is common for a team to copy assets from one project to another if they have made something useful for both. When this occurs, the easiest way to perform the copy is to use the Content Browser's Migrate functionality as it will copy over not just the selected asset but all of its dependencies.
+Ao trabalhar em vários projetos, é comum que uma equipe copie assets de um projeto para outro, caso tenham feito algo útil para ambos. Quando isso ocorre, a maneira mais fácil de realizar a cópia é usar a funcionalidade Migrate do Content Browser, pois ela copiará não apenas o asset selecionado, mas todas as suas dependências.
 
-These dependencies are what can easily get you into trouble. If two project's assets do not have a top level folder and they happen to have similarly named or already previously migrated assets, a new migration can accidentally wipe any changes to the existing assets.
+Essas dependências podem facilmente causar problemas. Se os assets de dois projetos não tiverem uma pasta de nível superior e acontecerem de terem assets com nomes semelhantes ou já migrados anteriormente, uma nova migração pode apagar acidentalmente quaisquer alterações nos assets existentes.
 
-This is also the primary reason why Epic's Marketplace staff enforces the same policy for submitted assets.
+Esse também é o principal motivo pelo qual a equipe do Marketplace da Epic aplica a mesma política para os assets enviados.
 
-After a migration, safe merging of assets can be done using the 'Replace References' tool in the content browser with the added clarity of assets not belonging to a project's top level folder are clearly pending a merge. Once assets are merged and fully migrated, there shouldn't be another top level folder in your Content tree. This method is _100%_ guaranteed to make any migrations that occur completely safe.
+Após uma migração, a fusão segura de assets pode ser feita usando a ferramenta 'Replace References' no Content Browser com a clareza adicional de assets que não pertencem à pasta de nível superior de um projeto e estão claramente pendentes de uma fusão. Depois que os ativos são mesclados e totalmente migrados, não deve haver outra pasta de nível superior em sua árvore de conteúdo. Esse método é _100% _ garantido para tornar todas as migrações que ocorrerem completamente seguras.
 
-<a name="2.2.2e1"></a>
-##### 2.2.2e1 Master Material Example
+<a name="2.2.2.1"></a>
+##### 2.2.2.1 Exemplo: Master Material
 
-For example, say you created a master material in one project that you would like to use in another project so you migrated that asset over. If this asset is not in a top level folder, it may have a name like `Content/MaterialLibrary/M_Master`. If the target project doesn't have a master material already, this should work without issue.
+Por exemplo, digamos que você criou um Master Material em um projeto que gostaria de usar em outro projeto, então migrou esse asset. Se este asset não estiver em uma pasta de nível superior, pode ter um nome como `Content/MaterialLibrary/M_Master`. Se o projeto de destino ainda não tiver um Master Material, isso deve funcionar sem problemas.
 
-As work on one or both projects progress their respective master materials may change to be tailored for their specific projects due to the course of normal development.
+Conforme o trabalho em um ou ambos os projetos progride, seus respectivos Master Materials podem mudar para serem adaptados para seus projetos específicos devido ao curso de desenvolvimento normal.
 
-The issue comes when, for example, an artist for one project created a nice generic modular set of static meshes and someone wants to include that set of static meshes in the second project. If the artist who created the assets used material instances based on `Content/MaterialLibrary/M_Master` as they're instructed to, when a migration is performed there is a great chance of conflict for the previously migrated `Content/MaterialLibrary/M_Master` asset.
+O problema surge quando, por exemplo, um artista para um projeto criou um bom conjunto modular genérico de static meshs e alguém deseja incluir esse conjunto de static meshs no segundo projeto. Se o artista que criou os recursos usou material instances com base em `Content/MaterialLibrary/M_Master` conforme instruído, quando uma migração é realizada, há uma grande chance de conflito para o recurso `Content/MaterialLibrary/M_Master` migrado anteriormente .
 
-This issue can be hard to predict and hard to account for. The person migrating the static meshes may not be the same person who is familiar with the development of both project's master material, and they may not be even aware that the static meshes in question rely on material instances which then rely on the master material. The Migrate tool requires the entire chain of dependencies to work however, and so it will be forced to grab `Content/MaterialLibrary/M_Master` when it copies these assets to the other project and it will overwrite the existing asset.
+Esse problema pode ser difícil de prever e de explicar. A pessoa que migra as malhas estáticas pode não ser a mesma pessoa que está familiarizada com o desenvolvimento de ambos os master materials do projeto e pode nem mesmo estar ciente de que as static meshs em questão dependem de material instances que, então, dependem do master material. A ferramenta Migrate requer que toda a cadeia de dependências funcione, portanto, será forçada a pegar `Content/MaterialLibrary/M_Master` ao copiar esses assets para outro projeto e sobrescrever o asset existente.
 
-It is at this point where if the master materials for both projects are incompatible in _any way_, you risk breaking possibly the entire material library for a project as well as any other dependencies that may have already been migrated, simply because assets were not stored in a top level folder. The simple migration of static meshes now becomes a very ugly task.
+É neste ponto que se os master material para ambos os projetos forem incompatíveis de _qualquer maneira_, você corre o risco de quebrar possivelmente toda a biblioteca de materiais de um projeto, bem como quaisquer outras dependências que já possam ter sido migradas, simplesmente porque os assets não foram armazenados em uma pasta de nível superior. A simples migração de static meshs agora se torna uma tarefa muito díficil de se resolver.
 
 <a name="2.2.3"></a>
-#### 2.2.3 Samples, Templates, and Marketplace Content Are Risk-Free
+#### 2.2.3 Samples, Templates, e Conteúdo dop Marketplace São Livres de Riscos
 
-An extension to [2.2.2](#2.2.2), if a team member decides to add sample content, template files, or assets they bought from the marketplace, it is guaranteed, as long your project's top-level folder is uniquely named, these new assets will not interfere with your project.
+Uma extensão para [2.2.2] (# 2.2.2), se um membro da equipe decidir adicionar conteúdo de amostra, arquivos de templates ou assets que comprou no marketplace, isso é garantido, desde que a pasta de nível superior do seu projeto seja exclusivamente nomeado, esses novos ativos não interferirão em seu projeto.
 
-You can not trust marketplace content to fully conform to the [top level folder rule](#2.2). There exist many assets that have the majority of their content in a top level folder but also have possibly modified Epic sample content as well as level files polluting the global `Content` folder.
+Você não pode confiar que o conteúdo do marketplace está em total conformidade com a [regra de pasta de nível superior] (# 2.2). Existem muitos ativos que têm a maior parte de seu conteúdo em uma pasta de nível superior, mas também possuem conteúdo da Epic possivelmente modificado, bem como arquivos de mapas poluindo a pasta global `Content`.
 
-When adhering to [2.2](#2.2), the worst marketplace conflict you can have is if two marketplace assets both have the same Epic sample content. If all your assets are in a project specific folder, including sample content you may have moved into your folder, your project will never break.
+Ao aderir a [2.2] (# 2.2), o pior conflito de marketplace que você pode ter é se dois ativos do marketplace tiverem o mesmo conteúdo da Epic. Se todos os seus recursos estiverem em uma pasta específica do projeto, incluindo conteúdo de amostra que você pode ter movido para a pasta, seu projeto nunca será interrompido.
 
-#### 2.2.4 DLC, Sub-Projects, and Patches Are Easily Maintained
+#### 2.2.4 DLC, Sub-Projetos, e Patches São Facilmente Mantidos
 
-If your project plans to release DLC or has multiple sub-projects associated with it that may either be migrated out or simply not cooked in a build, assets relating to these projects should have their own separate top level content folder. This make cooking DLC separate from main project content far easier. Sub-projects can also be migrated in and out with minimal effort. If you need to change a material of an asset or add some very specific asset override behavior in a patch, you can easily put these changes in a patch folder and work safely without the chance of breaking the core project.
+Se o seu projeto planeja liberar DLC ou tem vários sub-projetos associados a ele que podem ser migrados ou simplesmente não foi feito o cooking em uma build, os assets relacionados a esses projetos devem ter sua própria pasta de conteúdo de nível superior separada. Isso torna muito mais fácil fazer o cook do DLC separado do conteúdo do projeto principal. Os sub-projetos também podem ser migrados para dentro e para fora com o mínimo de esforço. Se você precisar alterar um material de um asset ou adicionar algum comportamento de substituição de assets muito específico em um patch, pode facilmente colocar essas alterações em uma pasta de patch e trabalhar com segurança sem a chance de quebrar o projeto principal.
 
 <a name="2.3"></a>
 <a name="structure-developers"></a>
-### 2.3 Use Developers Folder For Local Testing ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 2.3 Use A Pasta De Desenvolvedores Para Testes Locais
 
-During a project's development, it is very common for team members to have a sort of 'sandbox' where they can experiment freely without risking the core project. Because this work may be ongoing, these team members may wish to put their assets on a project's source control server. Not all teams require use of Developer folders, but ones that do use them often run into a common problem with assets submitted to source control.
+Durante o desenvolvimento de um projeto, é muito comum que os membros da equipe tenham uma espécie de 'sandbox' onde podem experimentar livremente sem arriscar o projeto principal. Como esse trabalho pode estar em andamento, esses membros da equipe podem desejar colocar seus assets em um servidor Source Control do projeto. Nem todas as equipes exigem o uso de pastas de desenvolvedor, mas aquelas que as usam costumam ter um problema comum com ativos submetidos ao servidor Source Control.
 
-It is very easy for a team member to accidentally use assets that are not ready for use which will cause issues once those assets are removed. For example, an artist may be iterating on a modular set of static meshes and still working on getting their sizing and grid snapping correct. If a world builder sees these assets in the main project folder, they might use them all over a level not knowing they could be subject to incredible change and/or removal. This causes massive amounts of re-working by everyone on the team to resolve.
+É muito fácil para um membro da equipe usar acidentalmente assets que não estão prontos para uso, o que causará problemas quando esses assets forem removidos. Por exemplo, um artista pode estar iterando em um conjunto modular de static meshs e ainda trabalhando para obter o tamanho e o encaixe da grade corretos. Se um level designer vir esses assets na pasta principal do projeto, ele pode usá-los em um nível sem saber que podem estar sujeitos a mudanças e / ou remoções. Isso causa uma grande quantidade de retrabalho de todos na equipe para resolver.
 
-If these modular assets were placed in a Developer folder, the world builder should never of had a reason to use them and the whole issue would never happen. The Content Browser has specific View Options that will hide Developer folders (they are hidden by default) making it impossible to accidentally use Developer assets under normal use.
+Se esses ativos modulares fossem colocados em uma pasta de desenvolvedor, o Level Designer nunca deveria ter um motivo para usá-los e todo o problema nunca aconteceria. O Navegador de conteúdo tem opções de exibição específicas que ocultam as pastas do desenvolvedor (elas ficam ocultas por padrão), tornando impossível o uso acidental de ativos do desenvolvedor em uso normal.
 
-Once the assets are ready for use, an artist simply has to move the assets into the project specific folder and fix up redirectors. This is essentially 'promoting' the assets from experimental to production.
+Depois que os recursos estão prontos para uso, o artista simplesmente precisa mover os recursos para a pasta específica do projeto e corrigir os redirecionadores. Isso é essencialmente 'promover' os ativos do experimental para a produção.
 
 <a name="2.4"></a>
 <a name="structure-maps"></a>
