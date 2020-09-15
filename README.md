@@ -75,7 +75,7 @@ Também permite uma criação e manutenção mais produtivas, pois não é neces
 
 Se você vir alguém trabalhando contra um guia de estilo ou nenhum guia de estilo, tente corrigi-lo.
 
-Ao trabalhar em uma equipe ou discutir em uma comunidade como [Unreal Slackers] (http://join.unrealslackers.org/), é muito mais fácil ajudar e pedir ajuda quando as pessoas são consistentes. Ninguém gosta de ajudar a desemaranhar o espaguete do Blueprint de alguém ou lidar com ativos com nomes que eles não conseguem entender.
+Ao trabalhar em uma equipe ou discutir em uma comunidade como [Unreal Slackers](http://join.unrealslackers.org/), é muito mais fácil ajudar e pedir ajuda quando as pessoas são consistentes. Ninguém gosta de ajudar a desemaranhar o espaguete do Blueprint de alguém ou lidar com ativos com nomes que eles não conseguem entender.
 
 Se você está ajudando alguém cujo trabalho segue um guia de estilo diferente, mas consistente e lógico, você deve ser capaz de se adaptar a ele. Se eles não estiverem de acordo com nenhum guia de estilo, indique-os esse guia de estilo.
 
@@ -121,7 +121,7 @@ Todos os assets devem ter um _BaseAssetName_. Um nome de asset representa um agr
 
 Manter o padrão `Prefix_BaseAssetName_Variant_Suffix` em mente e usar o bom senso geralmente é suficiente para garantir bons nomes de assets. Aqui estão algumas regras detalhadas sobre cada elemento.
 
-`Prefix` e` Suffix` devem ser determinados pelo tipo de asset por meio das seguintes tabela [Asset Name Modifier] (#asset-name-modifiers).
+`Prefix` e` Suffix` devem ser determinados pelo tipo de asset por meio das seguintes tabela [Asset Name Modifier](#asset-name-modifiers).
 
 `BaseAssetName` deve ser determinado por um nome curto e facilmente reconhecível relacionado ao contexto deste grupo de assets. Por exemplo, se você tivesse um personagem chamado Bob, todos os recursos de Bob teriam o `BaseAssetName` de` Bob`.
 
@@ -405,10 +405,10 @@ Tão importante quanto os nomes dos assets, o estilo da estrutura de diretório 
 
 Existem várias maneiras de definir o conteúdo de um projeto UE4. Nesse estilo, usaremos uma estrutura que depende mais dos recursos de filtragem e pesquisa do Content Browser para aqueles que trabalham com assets para encontrar assets de um tipo específico em vez de outra estrutura comum que agrupa tipos de assets com pastas.
 
-> Se você estiver usando o prefixo [convenção de nomenclatura] (# 1.2), usar pastas para conter assets de tipos semelhantes, como `Meshes`, `Textures`, and `Materials` é uma prática redundante, pois os tipos de assets já estão classificados por prefixo, além de poder ser filtrado no Content Browser.
+> Se você estiver usando o prefixo [convenção de nomenclatura](#1.2), usar pastas para conter assets de tipos semelhantes, como `Meshes`, `Textures`, and `Materials` é uma prática redundante, pois os tipos de assets já estão classificados por prefixo, além de poder ser filtrado no Content Browser.
 
-<a name="2e1"><a>
-### 2e1 Example Project Content Structure
+<a name="2.1"><a>
+### 2.1 Example Project Content Structure
 <pre>
 |-- Content
     |-- <a href="#2.2">GenericShooter</a>
@@ -491,21 +491,21 @@ Essas são regras comuns para nomear qualquer pasta na estrutura de conteúdo.
 <a name="2.1.1"></a>
 #### 2.1.1 Always Use PascalCase[<sup>*</sup>](#terms-cases)
 
-PascalCase se refere a iniciar um nome com uma letra maiúscula e, em vez de usar espaços, todas as palavras seguintes também começam com uma letra maiúscula. Por exemplo, `DesertEagle`,` RocketPistol` e `ASeriesOfWords`.
+PascalCase se refere a iniciar um nome com uma letra maiúscula e, em vez de usar espaços, todas as palavras seguintes também começam com uma letra maiúscula. Por exemplo, `DesertEagle`, `RocketPistol` e `ASeriesOfWords`.
 
 Veja [Cases](#terms-cases).
 
 <a name="2.1.2"></a>
 #### 2.1.2 Nunca Use Espaços
 
-Reforçando [2.1.1] (# 2.1.1), nunca use espaços. Os espaços podem fazer com que várias ferramentas de engenharia e processos em lote falhem. Idealmente, a raiz do seu projeto também não contém espaços e está localizada em algum lugar como `D:\Project` em vez de `C:\Users\My Name\My Documents\Unreal Projects`.
+Reforçando [2.1.1](#2.1.1), nunca use espaços. Os espaços podem fazer com que várias ferramentas de engenharia e processos em lote falhem. Idealmente, a raiz do seu projeto também não contém espaços e está localizada em algum lugar como `D:\Project` em vez de `C:\Users\My Name\My Documents\Unreal Projects`.
 
 <a name="2.1.3"></a>
 #### 2.1.3 Nunca Use Caracteres Unicode e Outros Simbolos
 
-Se um dos personagens do seu jogo se chama 'Zoë', o nome da pasta deve ser `Zoe`. Os caracteres Unicode podem ser piores do que [Espaços] (# 2.1.2) para a ferramenta de engenharia e algumas partes do UE4 também não suportam caracteres Unicode nos caminhos.
+Se um dos personagens do seu jogo se chama 'Zoë', o nome da pasta deve ser `Zoe`. Os caracteres Unicode podem ser piores do que [Espaços](#2.1.2) para a ferramenta de engenharia e algumas partes do UE4 também não suportam caracteres Unicode nos caminhos.
 
-Relacionado a isso, se o seu projeto tiver [problemas inexplicáveis] (https://answers.unrealengine.com/questions/101207/undefined.html) e o nome de usuário do seu computador tiver um caractere Unicode (ou seja, seu nome é `Zoë`), qualquer projeto localizado na pasta `Meus Documentos` sofrerá com esse problema. Freqüentemente, simplesmente mover seu projeto para algo como `D:\Project` irá corrigir esses problemas misteriosos.
+Relacionado a isso, se o seu projeto tiver [problemas inexplicáveis](https://answers.unrealengine.com/questions/101207/undefined.html) e o nome de usuário do seu computador tiver um caractere Unicode (ou seja, seu nome é `Zoë`), qualquer projeto localizado na pasta `Meus Documentos` sofrerá com esse problema. Freqüentemente, simplesmente mover seu projeto para algo como `D:\Project` irá corrigir esses problemas misteriosos.
 
 Usar outros caracteres fora de `az`,` AZ` e `0-9`, como` @ `,` -`, `_`,`, `,` * `e` # `também pode levar a problemas inesperados e difícil rastrear em outras plataformas, Source Control e ferramentas de engenharia mais fracas.
 
@@ -515,7 +515,7 @@ Usar outros caracteres fora de `az`,` AZ` e `0-9`, como` @ `,` -`, `_`,`, `,` * 
 
 Todos os assets de um projeto devem existir em uma pasta com o nome do projeto. Por exemplo, se o seu projeto se chama 'Generic Shooter', _todo_ o seu conteúdo deve existir em `Content/GenericShooter`.
 
-> A pasta `Developers` não é para assets dos quais seu projeto depende e, portanto, não é específica do projeto. Consulte [Developer Folders] (# 2.3) para obter detalhes sobre isso.
+> A pasta `Developers` não é para assets dos quais seu projeto depende e, portanto, não é específica do projeto. Consulte [Developer Folders](#2.3) para obter detalhes sobre isso.
 
 Existem várias razões para esta abordagem.
 
@@ -524,7 +524,7 @@ Existem várias razões para esta abordagem.
 
 Freqüentemente, nos guias de estilo de código está escrito que você não deve poluir o namespace global e isso segue o mesmo princípio. Quando assets podem existir fora de uma pasta de projeto, geralmente se torna muito mais difícil impor um layout de estrutura estrito, pois assets que não estão em uma pasta encorajam o mau comportamento de não ter que organizar assets.
 
-Todo asset deve ter um propósito, caso contrário, ele não pertence a um projeto. Se um asset é um teste experimental e não deve ser usado pelo projeto, ele deve ser colocado em uma pasta [`Developer`] (# 2.3).
+Todo asset deve ter um propósito, caso contrário, ele não pertence a um projeto. Se um asset é um teste experimental e não deve ser usado pelo projeto, ele deve ser colocado em uma pasta [`Developer`](#2.3).
 
 <a name="2.2.2"></a>
 #### 2.2.2 Reduzir Conflitos De Migração
@@ -535,7 +535,7 @@ Essas dependências podem facilmente causar problemas. Se os assets de dois proj
 
 Esse também é o principal motivo pelo qual a equipe do Marketplace da Epic aplica a mesma política para os assets enviados.
 
-Após uma migração, a fusão segura de assets pode ser feita usando a ferramenta 'Replace References' no Content Browser com a clareza adicional de assets que não pertencem à pasta de nível superior de um projeto e estão claramente pendentes de uma fusão. Depois que os ativos são mesclados e totalmente migrados, não deve haver outra pasta de nível superior em sua árvore de conteúdo. Esse método é _100% _ garantido para tornar todas as migrações que ocorrerem completamente seguras.
+Após uma migração, a fusão segura de assets pode ser feita usando a ferramenta 'Replace References' no Content Browser com a clareza adicional de assets que não pertencem à pasta de nível superior de um projeto e estão claramente pendentes de uma fusão. Depois que os ativos são mesclados e totalmente migrados, não deve haver outra pasta de nível superior em sua árvore de conteúdo. Esse método é _100%_ garantido para tornar todas as migrações que ocorrerem completamente seguras.
 
 <a name="2.2.2.1"></a>
 ##### 2.2.2.1 Exemplo: Master Material
@@ -553,11 +553,11 @@ Esse problema pode ser difícil de prever e de explicar. A pessoa que migra as m
 <a name="2.2.3"></a>
 #### 2.2.3 Samples, Templates, e Conteúdo dop Marketplace São Livres de Riscos
 
-Uma extensão para [2.2.2] (# 2.2.2), se um membro da equipe decidir adicionar conteúdo de amostra, arquivos de templates ou assets que comprou no marketplace, isso é garantido, desde que a pasta de nível superior do seu projeto seja exclusivamente nomeado, esses novos ativos não interferirão em seu projeto.
+Uma extensão para [2.2.2](#2.2.2), se um membro da equipe decidir adicionar conteúdo de amostra, arquivos de templates ou assets que comprou no marketplace, isso é garantido, desde que a pasta de nível superior do seu projeto seja exclusivamente nomeado, esses novos ativos não interferirão em seu projeto.
 
-Você não pode confiar que o conteúdo do marketplace está em total conformidade com a [regra de pasta de nível superior] (# 2.2). Existem muitos ativos que têm a maior parte de seu conteúdo em uma pasta de nível superior, mas também possuem conteúdo da Epic possivelmente modificado, bem como arquivos de mapas poluindo a pasta global `Content`.
+Você não pode confiar que o conteúdo do marketplace está em total conformidade com a [regra de pasta de nível superior](#2.2). Existem muitos ativos que têm a maior parte de seu conteúdo em uma pasta de nível superior, mas também possuem conteúdo da Epic possivelmente modificado, bem como arquivos de mapas poluindo a pasta global `Content`.
 
-Ao aderir a [2.2] (# 2.2), o pior conflito de marketplace que você pode ter é se dois ativos do marketplace tiverem o mesmo conteúdo da Epic. Se todos os seus recursos estiverem em uma pasta específica do projeto, incluindo conteúdo de amostra que você pode ter movido para a pasta, seu projeto nunca será interrompido.
+Ao aderir a [2.2](#2.2), o pior conflito de marketplace que você pode ter é se dois ativos do marketplace tiverem o mesmo conteúdo da Epic. Se todos os seus recursos estiverem em uma pasta específica do projeto, incluindo conteúdo de amostra que você pode ter movido para a pasta, seu projeto nunca será interrompido.
 
 #### 2.2.4 DLC, Sub-Projetos, e Patches São Facilmente Mantidos
 
@@ -619,13 +619,13 @@ Não fazer isso também evita a inevitabilidade de alguém colocar uma malha est
 <a name="structure-large-sets"></a>
 ### 2.7 Conjuntos De Assets Muito Grandes Obtêm Seu Próprio Layout De Pasta
 
-Isso pode ser visto como uma pseudo-exceção para [2.6] (# 2.6).
+Isso pode ser visto como uma pseudo-exceção para [2.6](#2.6).
 
 Existem certos tipos de asset que têm um grande volume de arquivos relacionados, onde cada asset  tem uma finalidade única. Os dois mais comuns são asset de animação e áudio. Se você tiver mais de 15 desses asset que pertencem um ao outro, eles deveriam estar juntos.
 
 Por exemplo, as animações que são compartilhadas por vários personagens devem ser colocadas em `Characters/Common/Animations` e podem ter subpastas como` Locomotion` ou `Cinematic`.
 
-> Isso não se aplica a assets como texturas e materiais. É comum que uma pasta `Rocks` tenha uma grande quantidade de texturas se houver uma grande quantidade de pedras, no entanto, essas texturas geralmente estão relacionadas apenas a algumas pedras específicas e devem ser nomeadas apropriadamente. Mesmo que essas texturas façam parte de uma [MaterialLibrary] (# 2.8).
+> Isso não se aplica a assets como texturas e materiais. É comum que uma pasta `Rocks` tenha uma grande quantidade de texturas se houver uma grande quantidade de pedras, no entanto, essas texturas geralmente estão relacionadas apenas a algumas pedras específicas e devem ser nomeadas apropriadamente. Mesmo que essas texturas façam parte de uma [MaterialLibrary](#2.8).
 
 <a name="2.8"></a>
 <a name="structure-material-library"></a>
@@ -664,9 +664,9 @@ Se você achar que o content browser tem uma pasta vazia que não pode ser exclu
 <a name="bp"></a>
 ## 3. Blueprints
 
-Esta seção se concentrará nas classes Blueprint e seus componentes internos. Quando possível, as regras de estilo estão em conformidade com o [Epic's Coding Standard] (https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
+Esta seção se concentrará nas classes Blueprint e seus componentes internos. Quando possível, as regras de estilo estão em conformidade com o [Epic's Coding Standard](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
 
-Lembre-se: o projeto não suporta erros graves, cuidado! (Frase de [KorkuVeren] (http://github.com/KorkuVeren))
+Lembre-se: o projeto não suporta erros graves, cuidado! (Frase de [KorkuVeren](http://github.com/KorkuVeren))
 
 ### Seções
 
@@ -684,7 +684,7 @@ Lembre-se: o projeto não suporta erros graves, cuidado! (Frase de [KorkuVeren] 
 
 Todos os blueprints devem ser compilados com nenhum aviso e nenhum erro. Você deve corrigir os avisos e erros do blueprint imediatamente, pois eles podem rapidamente se transformar em um comportamento inesperado muito assustador.
 
-* Não * envie projetos corrompidos ao controle de origem. Se você precisar armazená-los no controle de origem, arquive-os.
+*Não* envie projetos corrompidos ao controle de origem. Se você precisar armazená-los no controle de origem, arquive-os.
 
 Projetos corrompidos podem causar problemas que se manifestam de outras maneiras, como referências quebradas, comportamento inesperado, falhas de cooking e recompilação desnecessária frequente. Um projeto quebrado tem o poder de quebrar todo o seu jogo.
 
@@ -692,7 +692,7 @@ Projetos corrompidos podem causar problemas que se manifestam de outras maneiras
 <a name="bp-vars"></a>
 ### 3.2 Variables
 
-As palavras `variable` e` property` podem ser usadas indistintamente.
+As palavras `variable` e `property` podem ser usadas indistintamente.
 
 #### Seções
 
@@ -724,7 +724,7 @@ Todos os nomes de variáveis não booleanas devem ser substantivos claros, não 
 <a name="bp-var-naming-case"></a>
 ##### 3.2.1.2 PascalCase
 
-Todas as variáveis não booleanas devem estar na forma de[PascalCase](#terms-cases).
+Todas as variáveis não booleanas devem estar na forma de [PascalCase](#terms-cases).
 
 <a name="3.2.1.2.1"></a>
 ###### 3.2.1.2.1 Exemplos:
@@ -742,7 +742,7 @@ Todas as variáveis não booleanas devem estar na forma de[PascalCase](#terms-ca
 
 Todos as booleanas devem ser nomeadas em PascalCase, mas prefixadas com `b` minúsculo.
 
-Exemplo: Use `bDead` e` bEvil`, ** não ** `Dead` e` Evil`.
+Exemplo: Use `bDead` e` bEvil`, **não** `Dead` e` Evil`.
 
 Os editores do UE4 Blueprint não devem incluir o `b` em exibições user-friendly da variável.
 
@@ -755,7 +755,7 @@ Os editores do UE4 Blueprint não devem incluir o `b` em exibições user-friend
 
 Todos as booleanas devem ser nomeadas como adjetivos descritivos, quando possível, se representarem informações gerais. Não inclua palavras que expressem a variável como uma pergunta, como `Is`. Isso é reservado para funções.
 
-Exemplo: Use `bDead` e` bHostile` ** e não ** `bIsDead` e` bIsHostile`.
+Exemplo: Use `bDead` e` bHostile` **e não** `bIsDead` e` bIsHostile`.
 
 Tente não usar verbos como `bRunning`. Os verbos tendem a levar a estados complexos.
 
@@ -764,9 +764,9 @@ Tente não usar verbos como `bRunning`. Os verbos tendem a levar a estados compl
 
 Não use booleanas para representar estados complexos e / ou dependentes. Isso torna a adição e remoção de estados complexa e não mais facilmente legível. Em vez disso, use uma enumeração.
 
-Exemplo: Ao definir uma arma, ** não ** use `bReloading` e` bEquipping` se uma arma não puder recarregar e equipar. Defina uma enumeração chamada `EWeaponState` e use uma variável com este tipo chamada` WeaponState`. Isso torna muito mais fácil adicionar novos estados às armas.
+Exemplo: Ao definir uma arma, **não** use `bReloading` e `bEquipping` se uma arma não puder recarregar e equipar. Defina uma enumeração chamada `EWeaponState` e use uma variável com este tipo chamada `WeaponState`. Isso torna muito mais fácil adicionar novos estados às armas.
 
-Exemplo: ** não ** use `bRunning` se também precisar de` bWalking` ou `bSprinting`. Isso deve ser definido como uma enumeração com nomes de estado claramente definidos.
+Exemplo: **não** use `bRunning` se também precisar de `bWalking` ou `bSprinting`. Isso deve ser definido como uma enumeração com nomes de estado claramente definidos.
 
 <a name="3.2.1.5"></a>
 <a name="bp-vars-naming-context"></a>
@@ -779,7 +779,7 @@ Todos os nomes de variáveis não devem ser redundantes com seu contexto, pois t
 
 Considere um Blueprint chamado `BP_PlayerCharacter`.
 
-**Bad**
+**Ruim**
 
 * `PlayerScore`
 * `PlayerKills`
@@ -790,7 +790,7 @@ Considere um Blueprint chamado `BP_PlayerCharacter`.
 
 Todas essas variáveis são nomeadas de forma redundante. Está implícito que a variável é representativa do `BP_PlayerCharacter` ao qual pertence, porque é` BP_PlayerCharacter` que está definindo essas variáveis.
 
-**Good**
+**Bom**
 
 * `Score`
 * `Kills`
@@ -813,11 +813,11 @@ Strings e vetores são considerados atômicos em termos de estilo ao trabalhar c
 
 Variáveis atômicas não devem ter seu nome de tipo em seu nome.
 
-Exemplo: Use `Score`,` Kills` e `Description` ** e não **` ScoreFloat`, `FloatKills`,` DescriptionString`.
+Exemplo: Use `Score`,` Kills` e `Description` **e não** `ScoreFloat`, `FloatKills`, `DescriptionString`.
 
 A única exceção a esta regra é quando uma variável representa 'um número de' algo a ser contado _e_ quando usar um nome sem um tipo de variável não é fácil de ler.
 
-Exemplo: Um Fence Generator precisa gerar um número X de posts. Armazene o X em `NumPosts` ou` PostsCount` em vez de `Posts`, pois` Posts` podem potencialmente ser lidos como um Array de um tipo de variável chamado `Post`.
+Exemplo: Um Fence Generator precisa gerar um número X de posts. Armazene o X em `NumPosts` ou `PostsCount` em vez de `Posts`, pois `Posts` podem potencialmente ser lidos como um Array de um tipo de variável chamado `Post`.
 
 <a name="3.2.1.7"></a>
 <a name="bp-vars-naming-complex"></a>
@@ -831,11 +831,11 @@ Essas variáveis devem incluir seu nome de tipo, ainda considerando seu contexto
 
 Se uma classe possui uma instância de uma variável complexa, ou seja, se um `BP_PlayerCharacter` possui um` BP_Hat`, ele deve ser armazenado como o tipo de variável, sem qualquer modificação de nome.
 
-Exemplo: Use `Hat`,` Flag` e `Ability` ** e não **` MyHat`, `MyFlag` e` PlayerAbility`.
+Exemplo: Use `Hat`,` Flag` e `Ability` **e não** `MyHat`, `MyFlag` e `PlayerAbility`.
 
 Se uma classe não possui o valor que uma variável complexa representa, você deve usar um substantivo junto com o tipo de variável.
 
-Exemplo: Se um `BP_Turret` tem a capacidade de direcionar um` BP_PlayerCharacter`, ele deve armazenar seu destino como `TargetPlayer` como quando no contexto de` BP_Turret` deve ficar claro que é uma referência a outro tipo de variável complexa que ele não possui.
+Exemplo: Se um `BP_Turret` tem a capacidade de direcionar um`BP_PlayerCharacter`, ele deve armazenar seu destino como `TargetPlayer` como quando no contexto de `BP_Turret` deve ficar claro que é uma referência a outro tipo de variável complexa que ele não possui.
 
 
 <a name="3.2.1.8"></a>
@@ -844,14 +844,14 @@ Exemplo: Se um `BP_Turret` tem a capacidade de direcionar um` BP_PlayerCharacter
 
 Os arrays seguem as mesmas regras de nomenclatura acima, mas devem ser nomeados como um substantivo no plural.
 
-Exemplo: use `Targets`,` Hats` e `EnemyPlayers`, ** não **` TargetList`, `HatArray`,` EnemyPlayerArray`.
+Exemplo: use `Targets`, `Hats` e `EnemyPlayers`, **não** `TargetList`, `HatArray`, `EnemyPlayerArray`.
 
 
 <a name="3.2.2"></a>
 <a name="bp-vars-editable"></a>
 #### 3.2.2 Variáveis Editáveis
 
-Todas as variáveis que podem ser alteradas com segurança para configurar o comportamento de um blueprint devem ser marcadas como `Editáveis`.
+Todas as variáveis que podem ser alteradas com segurança para configurar o comportamento de um blueprint devem ser marcadas como `Editable`.
 
 Por outro lado, todas as variáveis que não são seguras para alterar ou não devem ser expostas aos designers _não_ devem ser marcadas como editáveis, a menos que por razões de engenharia a variável deva ser marcada como `Expose On Spawn`.
 
@@ -861,7 +861,7 @@ Não marque variáveis arbitrariamente como `Editable`.
 <a name="bp-vars-editable-tooltips"></a>
 ##### 3.2.2.1 Tooltips
 
-Todas as variáveis `Editable`, incluindo aquelas marcadas como editáveis apenas para que possam ser marcadas como` Expose On Spawn`, devem ter uma descrição em seus campos `Tooltip` que explica como alterar este valor afeta o comportamento do blueprint.
+Todas as variáveis `Editable`, incluindo aquelas marcadas como editáveis apenas para que possam ser marcadas como `Expose On Spawn`, devem ter uma descrição em seus campos `Tooltip` que explica como alterar este valor afeta o comportamento do blueprint.
 
 <a name="3.2.2.2"></a>
 <a name="bp-vars-editable-ranges"></a>
@@ -883,7 +883,7 @@ Se uma classe tiver apenas um pequeno número de variáveis, as categorias não 
 
 Se uma classe tem uma quantidade moderada de variáveis (5-10), todas as variáveis `Editable` devem ter uma categoria não padrão atribuída. Uma categoria comum é `Config`.
 
-Se uma classe tem uma grande quantidade de variáveis, todas as variáveis `Editable` devem ser categorizadas em subcategorias usando a categoria` Config` como a categoria base. Variáveis não editáveis devem ser categorizadas em categorias descritivas que descrevem seu uso.
+Se uma classe tem uma grande quantidade de variáveis, todas as variáveis `Editable` devem ser categorizadas em subcategorias usando a categoria `Config` como a categoria base. Variáveis não editáveis devem ser categorizadas em categorias descritivas que descrevem seu uso.
 
 > Você pode definir subcategorias usando a barra vertical `|`, ou seja, `Config | Animations`.
 
@@ -903,7 +903,7 @@ Exemplo: um conjunto de variáveis de classe de arma pode ser organizado como:
 <a name="bp-vars-access"></a>
 #### 3.2.4 Variable Access Level
 
-Em C ++, as variáveis têm um conceito de nível de acesso. Public significa que qualquer código fora da classe pode acessar a variável. Protected significa que apenas a classe e quaisquer classes filhas podem acessar essa variável internamente. Private significa que apenas esta classe e nenhuma classe filha pode acessar esta variável.
+Em C++, as variáveis têm um conceito de nível de acesso. Public significa que qualquer código fora da classe pode acessar a variável. Protected significa que apenas a classe e quaisquer classes filhas podem acessar essa variável internamente. Private significa que apenas esta classe e nenhuma classe filha pode acessar esta variável.
 
 Os blueprints não têm um conceito definido de acesso Protected atualmente.
 
@@ -959,16 +959,16 @@ Essas perguntas e muito mais podem ser respondidas quando as funções são nome
 
 <a name="3.3.1.1"></a>
 <a name="bp-funcs-naming-verbs"></a>
-#### 3.3.1.1 All Functions Should Be Verbs ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.3.1.1 Todas as Funções Devem Ser Verbos
 
-All functions and events perform some form of action, whether its getting info, calculating data, or causing something to explode. Therefore, all functions should all start with verbs. They should be worded in the present tense whenever possible. They should also have some context as to what they are doing.
+Todas as funções e eventos realizam alguma forma de ação, seja para obter informações, calcular dados ou fazer algo explodir. Portanto, todas as funções devem começar com verbos. Eles devem ser redigidos no tempo presente sempre que possível. Eles também devem ter algum contexto sobre o que estão fazendo.
 
-`OnRep` functions, event handlers, and event dispatchers are an exception to this rule.
+`OnRep` functions, event handlers, e event dispatchers são uma exceção a esta regra.
 
-Good examples:
+Bons exemplos:
 
-* `Fire` - Good example if in a Character / Weapon class, as it has context. Bad if in a Barrel / Grass / any ambiguous class.
-* `Jump` - Good example if in a Character class, otherwise, needs context.
+* `Fire` - Bom exemplo se em uma classe de personagem / arma, pois tem contexto. Ruim se estiver em um Barril / Grama / qualquer classe ambígua.
+* `Jump` - Bom exemplo se em uma classe de personagem, caso contrário, precisa de contexto.
 * `Explode`
 * `ReceiveMessage`
 * `SortPlayerArray`
@@ -976,31 +976,32 @@ Good examples:
 * `GetCoordinates`
 * `UpdateTransforms`
 * `EnableBigHeadMode`
-* `IsEnemy` - ["Is" is a verb.](http://writingexplained.org/is-is-a-verb)
+* `IsEnemy` - ["Is" é um verbo.](Http://writingexplained.org/is-is-a-verb)
+ 
 
-Bad examples:
+Maus exemplos:
 
-* `Dead` - Is Dead? Will deaden?
+* `Dead` - Is Dead? Vai morrer?
 * `Rock`
-* `ProcessData` - Ambiguous, these words mean nothing.
-* `PlayerState` - Nouns are ambiguous.
-* `Color` - Verb with no context, or ambiguous noun.
+* `ProcessData` - Ambíguo, essas palavras não significam nada.
+* `PlayerState` - Os substantivos são ambíguos.
+* `Color` - Verbo sem contexto ou substantivo ambíguo.
 
 <a name="3.3.1.2"></a>
 <a name="bp-funcs-naming-onrep"></a>
-#### 3.3.1.2 Property RepNotify Functions Always `OnRep_Variable` ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.3.1.2 Property RepNotify Functions Sempre São `OnRep_Variable`
 
-All functions for replicated with notification variables should have the form `OnRep_Variable`. This is forced by the Blueprint editor. If you are writing a C++ `OnRep` function however, it should also follow this convention when exposing it to Blueprints.
+Todas as funções com variáveis de notificação replicadas devem ter o formato `OnRep_Variable`. Isso é forçado pelo editor Blueprint. Se você está escrevendo uma função C ++ `OnRep`, no entanto, ela também deve seguir esta convenção ao expô-la aos Blueprints.
 
 <a name="3.3.1.3"></a>
 <a name="bp-funcs-naming-bool"></a>
-#### 3.3.1.3 Info Functions Returning Bool Should Ask Questions ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.3.1.3 Funções de informação que retornam Bool devem fazer perguntas
 
-When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow [the verb rule](#bp-funcs-naming-verbs).
+Ao escrever uma função que não muda o estado ou modifica qualquer objeto e é puramente para obter informações, estado ou calcular um valor sim / não, ela deve fazer uma pergunta. Isso também deve seguir [a regra do verbo](#bp-funcs-naming-verbs).
 
-This is extremely important as if a question is not asked, it may be assumed that the function performs an action and is returning whether that action succeeded.
+Isso é extremamente importante, pois se uma pergunta não for feita, pode-se presumir que a função executa uma ação e está retornando se essa ação foi bem-sucedida.
 
-Good examples:
+Bons exemplos:
 
 * `IsDead`
 * `IsOnFire`
@@ -1008,30 +1009,30 @@ Good examples:
 * `IsSpeaking`
 * `IsHavingAnExistentialCrisis`
 * `IsVisible`
-* `HasWeapon` - ["Has" is a verb.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
-* `WasCharging` - ["Was" is past-tense of "be".](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html) Use "was" when referring to 'previous frame' or 'previous state'.
-* `CanReload` - ["Can" is a verb.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
+* `HasWeapon` - ["Has" é um verbo](Http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
+* `WasCharging` - ["Was" é pretérito de "ser "](Http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html) Use "era" ao fazer referência para 'previous frame' ou 'previous state'.
+* `CanReload` - ["Can" é um verbo](Http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
 
-Bad examples:
+Maus exemplos:
 
-* `Fire` - Is on fire? Will fire? Do fire?
-* `OnFire` - Can be confused with event dispatcher for firing.
-* `Dead` - Is dead? Will deaden?
-* `Visibility` - Is visible? Set visibility? A description of flying conditions?
+* `Fire` - Está pegando fogo? Vai atirar? Atirou?
+* `OnFire` - pode ser confundido com o event dispatcher para atirar.
+* `Dead` - está morto? Vai morrer?
+* `Visibility` - Está visível? Definir visibilidade? Uma descrição das condições de vôo?
 
 <a name="3.3.1.4"></a>
 <a name="bp-funcs-naming-eventhandlers"></a>
-#### 3.3.1.4 Event Handlers and Dispatchers Should Start With `On` ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.3.1.4 Event Handlers e Dispatchers Devem Começar com `On`
 
-Any function that handles an event or dispatches an event should start with `On` and continue to follow [the verb rule](#bp-funcs-naming-verbs). The verb may move to the end however if past-tense reads better.
+Qualquer função que lida com um evento ou despacha um evento deve começar com `On` e continuar a seguir [a regra do verbo](#bp-funcs-naming-verbs). O verbo pode mover-se para o final, entretanto, se o pretérito for melhor lido.
 
-[Collocations](http://dictionary.cambridge.org/us/grammar/british-grammar/about-words-clauses-and-sentences/collocation) of the word `On` are exempt from following the verb rule.
+[Collocations](http://dictionary.cambridge.org/us/grammar/british-grammar/about-words-clauses-and-sentences/collocation) da palavra `On` estão isentos de seguir a regra verbal.
 
-`Handle` is not allowed. It is 'Unreal' to use `On` instead of `Handle`, while other frameworks may prefer to use `Handle` instead of `On`.
+`Handle` não é permitido. É 'Unreal' usar `On` em vez de` Handle`, enquanto outros frameworks podem preferir usar `Handle` em vez de` On`.
 
-Good examples:
+Bons exemplos:
 
-* `OnDeath` - Common collocation in games
+* `OnDeath` - Colocação comum em jogos
 * `OnPickup`
 * `OnReceiveMessage`
 * `OnMessageRecieved`
@@ -1039,7 +1040,7 @@ Good examples:
 * `OnClick`
 * `OnLeave`
 
-Bad examples:
+Maus exemplos:
 
 * `OnData`
 * `OnTarget`
@@ -1048,45 +1049,45 @@ Bad examples:
 
 <a name="3.3.1.5"></a>
 <a name="bp-funcs-naming-rpcs"></a>
-#### 3.3.1.5 Remote Procedure Calls Should Be Prefixed With Target ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.3.1.5 Chamadas de procedimento remoto devem ser prefixadas com o destino
 
-Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
+AToda vez que um RPC é criado, ele deve ser prefixado com `Server`, `Client` ou `Multicast`. Sem exceções.
 
-After the prefix, follow all other rules regarding function naming.
+Após o prefixo, siga todas as outras regras relacionadas à nomenclatura de funções.
 
-Good examples:
+Bons exemplos:
 
 * `ServerFireWeapon`
 * `ClientNotifyDeath`
 * `MulticastSpawnTracerEffect`
 
-Bad examples:
+Maus exemplos:
 
-* `FireWeapon` - Does not indicate its an RPC of some kind.
-* `ServerClientBroadcast` - Confusing.
-* `AllNotifyDeath` - Use `Multicast`, never `All`.
-* `ClientWeapon` - No verb, ambiguous.
+* `FireWeapon` - Não indica que seja um RPC de algum tipo.
+* `ServerClientBroadcast` - Confuso.
+* `AllNotifyDeath` - Use `Multicast`, nunca `All`.
+* `ClientWeapon` - Sem verbo, ambíguo.
 
 
 <a name="3.3.2"></a>
 <a name="bp-funcs-return"></a>
-#### 3.3.2 All Functions Must Have Return Nodes ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 3.3.2 Todas as Funções Devem Ter Nós de Retorno
 
 All functions must have return nodes, no exceptions.
 
-Return nodes explicitly note that a function has finished its execution. In a world where blueprints can be filled with `Sequence`, `ForLoopWithBreak`, and backwards reroute nodes, explicit execution flow is important for readability, maintenance, and easier debugging.
+Os nós de retorno observam explicitamente que uma função concluiu sua execução. Em um mundo onde os blueprints podem ser preenchidos com `Sequence`,` ForLoopWithBreak` e nós de redirecionamento reverso, o fluxo de execução explícito é importante para legibilidade, manutenção e depuração mais fácil.
 
-The Blueprint compiler is able to follow the flow of execution and will warn you if there is a branch of your code with an unhandled return or bad flow if you use return nodes.
+O compilador Blueprint é capaz de seguir o fluxo de execução e irá avisá-lo se houver uma ramificação de seu código com um retorno não tratado ou fluxo incorreto se você usar nós de retorno.
 
-In situations like where a programmer may add a pin to a Sequence node or add logic after a for loop completes but the loop iteration might return early, this can often result in an accidental error in code flow. The warnings the Blueprint compiler will alert everyone of these issues immediately.
+Em situações como em que um programador pode adicionar um pino a um nó Sequence ou adicionar lógica após a conclusão de um loop for, mas a iteração do loop pode retornar mais cedo, isso pode frequentemente resultar em um erro acidental no fluxo de código. Os avisos do compilador Blueprint alertarão a todos sobre esses problemas imediatamente.
 
 <a name="3.3.3"></a>
 <a name="bp-graphs-funcs-node-limit"></a>
-#### 3.3.3 No Function Should Have More Than 50 Nodes ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 3.3.3 Nenhuma Função Deve Ter Mais De 50 Nós
 
-Simply, no function should have more than 50 nodes. Any function this big should be broken down into smaller functions for readability and ease of maintenance.
+Simplesmente, nenhuma função deve ter mais de 50 nós. Qualquer função deste tamanho deve ser dividida em funções menores para facilitar a leitura e manutenção.
 
-The following nodes are not counted as they are deemed to not increase function complexity:
+Os seguintes nós não são contados, pois são considerados como não aumentando a complexidade da função:
 
 * Comment
 * Route
@@ -1098,84 +1099,84 @@ The following nodes are not counted as they are deemed to not increase function 
 
 <a name="3.3.4"></a>
 <a name="bp-graphs-funcs-description"></a>
-#### 3.3.4 All Public Functions Should Have A Description ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 3.3.4 Todas As Funções Públicas Devem Ter Uma Descrição
 
-This rule applies more to public facing or marketplace blueprints, so that others can more easily navigate and consume your blueprint API.
+Esta regra se aplica mais a projetos voltados para o público ou de mercado, para que outros possam navegar e consumir sua API de projeto com mais facilidade.
 
-Simply, any function that has an access specificer of Public should have its description filled out. 
+Simplesmente, qualquer função que tenha um acesso específico de Público deve ter sua descrição preenchida.
 
 <a name="3.3.5"></a>
 <a name="bp-graphs-funcs-plugin-category"></a>
-#### 3.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.3.5 Todas As Funções `BlueprintCallable` De Um Plugin Estático Devem Estar Categorizadas Pelo Nome Do Plugin
 
-If your project includes a plugin that defines `static` `BlueprintCallable` functions, they should have their category set to the plugin's name or a subset category of the plugin's name.
+Se o seu projeto inclui um plugin que define funções `static` `BlueprintCallable`, eles devem ter sua categoria definida para o nome do plugin ou uma categoria de subconjunto do nome do plugin.
 
-For example, `Zed Camera Interface` or `Zed Camera Interface | Image Capturing`.
+Por exemplo, `Zed Camera Interface` ou `Zed Camera Interface | Image Capturing`.
 
 <a name="3.4"></a>
 <a name="bp-graphs"></a>
-### 3.4 Blueprint Graphs ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 3.4 Blueprint Graphs
 
-This section covers things that apply to all Blueprint graphs.
+Esta seção cobre coisas que se aplicam a todos os gráficos do Blueprint.
 
 <a name="3.4.1"></a>
 <a name="bp-graphs-spaghetti"></a>
-#### 3.4.1 No Spaghetti ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.4.1 Sem Espaguete
 
-Wires should have clear beginnings and ends. You should never have to mentally untangle wires to make sense of a graph. Many of the following sections are dedicated to reducing spaghetti.
+Os fios devem ter começo e fim claros. Você nunca deve ter que desembaraçar mentalmente os fios para dar sentido a um gráfico. Muitas das seções a seguir são dedicadas à redução do espaguete.
 
 <a name="3.4.2"></a>
 <a name="bp-graphs-align-wires"></a>
-#### 3.4.2 Align Wires Not Nodes ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.4.2 Alinhar Fios, Não Nós
 
-Always align wires, not nodes. You can't always control the size and pin location on a node, but you can always control the location of a node and thus control the wires. Straight wires provide clear linear flow. Wiggly wires wear wits wickedly. You can straighten wires by using the Straighten Connections command with BP nodes selected. Hotkey: Q
+Sempre alinhe os fios, não os nós. Você nem sempre pode controlar o tamanho e a localização do pino em um nó, mas sempre pode controlar a localização de um nó e, assim, controlar os fios. Fios retos fornecem fluxo linear claro. Fios ondulados desgastam perversamente a inteligência. Você pode endireitar os fios usando o comando Endireitar Conexões com os nós BP selecionados. Atalho: Q
 
-Good example: The tops of the nodes are staggered to keep a perfectly straight white exec line.
+Bom exemplo: os topos dos nós são escalonados para manter uma linha exec branca perfeitamente reta.
 ![Aligned By Wires](https://github.com/allar/ue4-style-guide/raw/master/images/bp-graphs-align-wires-good.png "Aligned By Wires")
 
-Bad Example: The tops of the nodes are aligned creating a wiggly white exec line.
+Exemplo ruim: os topos dos nós estão alinhados criando uma linha executiva branca ondulada.
 ![Bad](https://github.com/allar/ue4-style-guide/raw/master/images/bp-graphs-align-wires-bad.png "Wiggly")
 
-Acceptable Example: Certain nodes might not cooperate no matter how you use the alignment tools. In this situation, try to minimize the wiggle by bringing the node in closer.
+Exemplo aceitável: Certos nós podem não cooperar, não importa como você usa as ferramentas de alinhamento. Nessa situação, tente minimizar a oscilação trazendo o nó para mais perto.
 ![Acceptable](https://github.com/allar/ue4-style-guide/raw/master/images/bp-graphs-align-wires-acceptable.png "Acceptable")
 
 <a name="3.4.3"></a>
 <a name="bp-graphs-exec-first-class"></a>
-#### 3.4.3 White Exec Lines Are Top Priority ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.4.3 Linhas Brancas de Execução São de Alta Prioridade
 
-If you ever have to decide between straightening a linear white exec line or straightening data lines of some kind, always straighten the white exec line.
+Se você alguma vez tiver que decidir entre endireitar uma linha de execução ou endireitar linhas de dados de algum tipo, sempre endireite a linha de execução.
 
 <a name="3.4.4"></a>
 <a name="bp-graphs-block-comments"></a>
-#### 3.4.4 Graphs Should Be Reasonably Commented ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.4.4 Os Gráficos Devem Ser Razoavelmente Comentados
 
-Blocks of nodes should be wrapped in comments that describe their higher-level behavior. While every function should be well named so that each individual node is easily readable and understandable, groups of nodes contributing to a purpose should have their purpose described in a comment block. If a function does not have many blocks of nodes and its clear that the nodes are serving a direct purpose in the function's goal, then they do not need to be commented as the function name and  description should suffice.
+Os blocos de nós devem ser incluídos em comentários que descrevam seu comportamento geral. Embora cada função deva ser bem nomeada para que cada nó individual seja facilmente legível e compreensível, os grupos de nós que contribuem para um propósito devem ter seu propósito descrito em um bloco de comentário. Se uma função não tem muitos blocos de nós e fica claro que os nós estão servindo a um propósito direto no objetivo da função, eles não precisam ser comentados, pois o nome e a descrição da função devem ser suficientes.
 
 <a name="3.4.5"></a>
 <a name="bp-graphs-cast-error-handling"></a>
-#### 3.4.5 Graphs Should Handle Casting Errors Where Appropriate ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.4.5 Os Gráficos Devem Lidar Com Erros De Casting Quando Apropriado
 
-If a function or event assumes that a cast always succeeds, it should appropriately report a failure in logic if the cast fails. This lets others know why something that is 'supposed to work' doesn't. A function should also attempt a graceful recover after a failed cast if it's known that the reference being casted could ever fail to be casted.
+Se uma função ou evento presumir que uma conversão sempre é bem-sucedida, ele deve relatar apropriadamente uma falha na lógica se a conversão falhar. Isso permite que outras pessoas saibam por que algo que "deveria funcionar" não funciona. Uma função também deve tentar uma recuperação normal após uma conversão com falha se for conhecido que a referência que está sendo lançada pode falhar ao ser convertida.
 
-This does not mean every cast node should have its failure handled. In many cases, especially events regarding things like collisions, it is expected that execution flow terminates on a failed cast quietly.
+Isso não significa que cada nó de conversão deva ter sua falha tratada. Em muitos casos, especialmente eventos relacionados a coisas como colisões, espera-se que o fluxo de execução termine em uma conversão com falha silenciosamente.
 
 <a name="3.4.6"></a>
 <a name="bp-graphs-dangling-nodes"></a>
-#### 3.4.6 Graphs Should Not Have Any Dangling / Loose / Dead Nodes ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+#### 3.4.6 Os Gráficos Não Devem Ter Nós Pendentes / Soltos / Mortos
 
-All nodes in all blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.
+Todos os nós em todos os gráficos do blueprint devem ter um propósito. Você não deve deixar nós de blueprint pendurados por aí que não têm propósito ou não são executados.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Voltar ao Topo](#table-of-contents)**
 
 
 <a name="4"></a>
 <a name="Static Meshes"></a>
 <a name="s"></a>
-## 4. Static Meshes ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+## 4. Static Meshes
 
-This section will focus on Static Mesh assets and their internals.
+Esta seção se concentrará em assets de Static Meshes e seus componentes internos.
 
-### Sections
+### Seções
 
 > 4.1 [UVs](#s-uvs)
 
@@ -1189,79 +1190,79 @@ This section will focus on Static Mesh assets and their internals.
 
 <a name="4.1"></a>
 <a name="s-uvs"></a>
-### 4.1 Static Mesh UVs ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 4.1 Static Mesh UVs
 
-If Linter is reporting bad UVs and you can't seem to track it down, open the resulting `.log` file in your project's `Saved/Logs` folder for exact details as to why it's failing. I am hoping to include these messages in the Lint report in the future.
+Se o Linter está relatando UVs ruins e você não consegue rastreá-los, abra o arquivo `.log` resultante na pasta `Saved/Logs` do seu projeto para obter detalhes exatos sobre o motivo da falha. Espero incluir essas mensagens no relatório Lint no futuro.
 
 <a name="4.1.1"></a>
 <a name="s-uvs-no-missing"></a>
-#### 4.1.1 All Meshes Must Have UVs ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 4.1.1 Todas as Meshes Devem Ter UVs
 
-Pretty simple. All meshes, regardless how they are to be used, should not be missing UVs.
+Bem simples. Todas as malhas, independentemente de como devem ser usadas, não devem ter UVs faltando.
 
 <a name="4.1.2"></a>
 <a name="s-uvs-no-overlapping"></a>
-#### 4.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps ![#](https://img.shields.io/badge/lint-supported-green.svg)
+#### 4.1.2 Todas As Meshes Não Devem Ter Uvs Sobrepostos Para Lightmaps
 
-Pretty simple. All meshes, regardless how they are to be used, should have valid non-overlapping UVs.
+Bem simples. Todas as malhas, independentemente de como devem ser usadas, não devem ter sobreposição de UVs.
 
 <a name="4.2"></a>
 <a name="s-lods"></a>
-### 4.2 LODs Should Be Set Up Correctly ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 4.2 LODs Deve Ser Configurado Corretamente
 
-This is a subjective check on a per-project basis, but as a general rule any mesh that can be seen at varying distances should have proper LODs.
+Esta é uma verificação subjetiva por projeto, mas como regra geral, qualquer malha que pode ser vista em distâncias variáveis deve ter LODs adequados.
 
 <a name="4.3"></a>
 <a name="s-modular-snapping"></a>
-### 4.3 Modular Socketless Assets Should Snap To The Grid Cleanly ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 4.3 Assets Modulares Sem Soquete Devem Se Encaixar Perfeitamente Na Grade
 
-This is a subjective check on a per-asset basis, however any modular socketless assets should snap together cleanly based on the project's grid settings.
+Esta é uma verificação subjetiva por asset, no entanto, quaisquer assets modulares sem soquete devem se encaixar perfeitamente com base nas configurações de grade do projeto.
 
-It is up to the project whether to snap based on a power of 2 grid or on a base 10 grid. However if you are authoring modular socketless assets for the marketplace, Epic's requirement is that they snap cleanly when the grid is set to 10 units or bigger.
+Cabe ao projeto se encaixar com base em uma grade de 2 ou em uma grade de base 10. No entanto, se você estiver criando ativos modulares sem soquete para o mercado, o requisito da Epic é que eles se encaixem perfeitamente quando a grade for configurada para 10 unidades ou mais.
 
 <a name="4.4"></a>
 <a name="s-collision"></a>
-### 4.4 All Meshes Must Have Collision ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 4.4 Todas as Meshes Devem Ter Colisão
 
-Regardless of whether an asset is going to be used for collision in a level, all meshes should have proper collision defined. This helps the engine with things such as bounds calculations, occlusion, and lighting. Collision should also be well-formed to the asset.
+Independentemente de um asset ser usado para colisão em um nível, todas as meshes devem ter a colisão adequada definida. Isso ajuda o mecanismo com coisas como cálculos de limites, oclusão e iluminação. A colisão também deve ser bem adaptada para o asset.
 
 <a name="4.5"></a>
 <a name="s-scaled"></a>
-### 4.5 All Meshes Should Be Scaled Correctly ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 4.5 Todas As Meshes Devem Ser Dimensionadas Corretamente
 
-This is a subjective check on a per-project basis, however all assets should be scaled correctly to their project. Level designers or blueprint authors should not have to tweak the scale of meshes to get them to confirm in the editor. Scaling meshes in the engine should be treated as a scale override, not a scale correction.
+Esta é uma verificação subjetiva por projeto, no entanto, todos os assets  devem ser dimensionados corretamente para o projeto. Os Level designers ou programadores não devem ter que ajustar a escala das malhas para que sejam conformadas no editor. Os escalonamentos das meshs na Engine devem ser tratadas como uma substituição de escala, não uma correção de escala.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Voltar ao Topo](#table-of-contents)**
 
 
 <a name="5"></a>
 <a name="Particle Systems"></a>
 <a name="ps"></a>
-## 5. Particle Systems ![#](https://img.shields.io/badge/lint-supported-green.svg)
+## 5. Particle Systems
 
-This section will focus on Particle System assets and their internals.
+Esta seção se concentrará nos assets dos sistemas de partículas e em seus componentes internos.
 
-### Sections
+### Seções
 
 > 5.1 [Emitter Naming](#ps-naming)
 
 <a name="5.1"></a>
 <a name="ps-emitter-naming"></a>
-### 5.1 Emitter Naming ![#](https://img.shields.io/badge/lint-supported-green.svg)
+### 5.1 Nomenclatura de Emitters ![#](https://img.shields.io/badge/lint-supported-green.svg)
 
-All emitters in a Particle System should be named something descriptive and not left to their default name "Particle Emitter".
+Todos os emissores em um sistema de partículas devem ser nomeados de forma descritiva e não deixados com o nome padrão "Particle Emitter".
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Voltar ao Topo](#table-of-contents)**
 
 
 <a name="6"></a>
 <a name="Levels"></a>
 <a name="levels"></a>
-## 6. Levels / Maps ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+## 6. Levels / Maps
 
-[See Terminology Note](#terms-level-map) regarding "levels" vs "maps".
+[Veja nota de terminologia](#terms-level-map) sobre "levels" vs "maps".
 
-This section will focus on Level assets and their internals.
+Esta seção se concentrará em assets de levels e seus componentes internos.
 
 ### Sections
 
@@ -1275,62 +1276,62 @@ This section will focus on Level assets and their internals.
 
 <a name="6.1"></a>
 <a name="levels-no-errors-or-warnings"></a>
-### 6.1 No Errors Or Warnings ![#](https://img.shields.io/badge/lint-partial_support-yellow.svg)
+### 6.1 Sem Errors Or Warnings
 
-All levels should load with zero errors or warnings. If a level loads with any errors or warnings, they should be fixed immediately to prevent cascading issues.
+Todos os levels devem carregar sem erros ou avisos. Se um level for carregado com erros ou avisos, eles devem ser corrigidos imediatamente para evitar problemas em cascata.
 
-You can run a map check on an open level in the editor by using the console command "map check".
+Você pode executar uma verificação de mapa em um nível aberto no editor usando o comando de console `map check`.
 
-Please note: Linter is even more strict on this than the editor is currently, and will catch load errors that the editor will resolve on its own.
+Observação: o Linter é ainda mais rígido nisso do que o editor atualmente e detectará erros de carregamento que o editor resolverá sozinho.
 
 <a name="6.2"></a>
 <a name="levels-lighting-should-be-built"></a>
-### 6.2 Lighting Should Be Built ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 6.2 Lighting Should Be Built
 
-It is normal during development for levels to occasionally not have lighting built. When doing a test/internal/shipping build or any build that is to be distributed however, lighting should always be built.
+É normal durante o desenvolvimento que os levels ocasionalmente não tenham build de iluminação. No entanto, ao fazer um teste/build interna/build de envio ou qualquer build a ser distribuída, a iluminação deve sempre ser construída.
 
 <a name="6.3"></a>
 <a name="levels-no-visible-z-fighting"></a>
-### 6.3 No Player Visible Z Fighting ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 6.3 O Jogador Não Deve Ver Z Fighting
 
-Levels should not have any [z-fighting](https://en.wikipedia.org/wiki/Z-fighting) in all areas visible to the player. 
+Os levels não devem ter nenhum [z-fighting](https://en.wikipedia.org/wiki/Z-fighting) em todas as áreas visíveis para o jogador. 
 
 <a name="6.4"></a>
 <a name="levels-mp-rules"></a>
-### 6.4 Marketplace Specific Rules ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 6.4 Regras Específicas do Marketplace
 
-If a project is to be sold on the UE4 Marketplace, it must follow these rules.
+Se um projeto for vendido no UE4 Marketplace, ele deve seguir estas regras.
 
 <a name="6.4.1"></a>
 <a name="levels-mp-rules-overview"></a>
-### 6.4.1 Overview Level ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 6.4.1 Overview Level
 
-If your project contains assets that should be visualized or demoed, you must have a map within your project that contains the name "Overview".
+Se seu projeto contém assets  que devem ser visualizados ou demonstrados, você deve ter um level dentro de seu projeto que contém o nome "Overview".
 
-This overview map, if it is visualizing assets, should be set up according to [Epic's guidelines](http://help.epicgames.com/customer/en/portal/articles/2592186-marketplace-submission-guidelines-preparing-your-assets#Required%20Levels%20and%20Maps).
+Este mapa de visão geral, se estiver visualizando assets, deve ser configurado de acordo com as [diretrizes da Epic](https://www.unrealengine.com/en-US/marketplace-guidelines).
 
-For example, `InteractionComponent_Overview`.
+Por exemplo, `InteractionComponent_Overview`.
 
 <a name="6.4.2"></a>
 <a name="levels-mp-rules-demo"></a>
-### 6.4.2 Demo Level ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 6.4.2 Demo Level
 
-If your project contains assets that should be demoed or come with some sort of tutorial, you must have a map within your project that contains the name "Demo". This level should also contain documentation within it in some form that illustrates how to use your project. See Epic's Content Examples project for good examples on how to do this.
+Se o seu projeto contém assets  que devem ser demonstrados ou vêm com algum tipo de tutorial, você deve ter um level dentro do seu projeto que contém o nome "Demo". Este level também deve conter documentação de alguma forma que ilustre como usar seu projeto. Veja o projeto Content Examples da Epic para bons exemplos de como fazer isso.
 
-If your project is a gameplay mechanic or other form of system as opposed to an art pack, this can be the same as your "Overview" map.
+Se o seu projeto for uma mecânica de jogo ou outra forma de sistema em oposição a um pacote de arte, isso pode ser igual ao seu mapa de "Overview".
 
-For example, `InteractionComponent_Overview_Demo`, `ExplosionKit_Demo`.
+Por exemplo, `InteractionComponent_Overview_Demo`, `ExplosionKit_Demo`.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Voltar ao Topo](#table-of-contents)**
 
 
 <a name="7"></a>
 <a name="textures"></a>
-## 7. Textures ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+## 7. Texturas
 
-This section will focus on Texture assets and their internals.
+Esta seção se concentrará em ativos de textura e seus componentes internos.
 
-### Sections
+### Seções
 
 > 7.1 [Dimensions Are Powers of 2](#textures-dimension)
 
@@ -1342,33 +1343,33 @@ This section will focus on Texture assets and their internals.
 
 <a name="7.1"></a>
 <a name="textures-dimensions"></a>
-### 7.1 Dimensions Are Powers of 2 ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 7.1 Dimensions Are Powers of 2
 
-All textures, except for UI textures, must have its dimensions in multiples of powers of 2. Textures do not have to be square.
+Todas as texturas, exceto as texturas de UI, devem ter suas dimensões em múltiplos de potências de 2. As texturas não precisam ser quadradas.
 
-For example, `128x512`, `1024x1024`, `2048x1024`, `1024x2048`, `1x512`.
+Por exemplo, `128x512`,` 1024x1024`, `2048x1024`,` 1024x2048`, `1x512`.
 
 <a name="7.2"></a>
 <a name="textures-density"></a>
-### 7.2 Texture Density Should Be Uniform ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 7.2 [Densidade da Textura](https://www.youtube.com/watch?v=5e6zvJqVqlA ) Deve Ser Uniforme
 
-All textures should be of a size appropriate for their standard use case. Appropriate texture density varies from project to project, but all textures within that project should have a consistent density.
+Todas as texturas devem ter um tamanho apropriado para seu caso de uso padrão. A densidade de textura apropriada varia de projeto para projeto, mas todas as texturas dentro desse projeto devem ter uma densidade consistente.
 
-For example, if a project's texture density is 8 pixel per 1 unit, a texture that is meant to be applied to a 100x100 unit cube should be 1024x1024, as that is the closest power of 2 that matches the project's texture density. 
+Por exemplo, se a densidade da textura de um projeto é de 8 pixels por 1 unidade, uma textura que se destina a ser aplicada a um cubo de 100x100 unidades deve ser 1024x1024, pois é a potência mais próxima de 2 que corresponde à densidade da textura do projeto.
 
 <a name="7.3"></a>
 <a name="textures-max-size"></a>
-### 7.3 Textures Should Be No Bigger than 8192 ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 7.3 Texturas Não Devem Ser Maior Que 8192
 
-No texture should have a dimension that exceeds 8192 in size, unless you have a very explicit reason to do so. Often, using a texture this big is simply just a waste of resources.
+Nenhuma textura deve ter uma dimensão que exceda 8192 em tamanho, a menos que você tenha um motivo muito explícito para fazer isso. Freqüentemente, usar uma textura tão grande é simplesmente um desperdício de recursos.
 
 <a name="7.4"></a>
 <a name="textures-group"></a>
-### 7.4 Textures Should Be Grouped Correctly ![#](https://img.shields.io/badge/lint-unsupported-red.svg)
+### 7.4 Textures Devem Ser Agrupadas Corretamente
 
-Every texture has a Texture Group property used for LODing, and this should be set correctly based on its use. For example, all UI textures should belong in the UI texture group.
+Cada textura possui uma propriedade Texture Group usada para LODing, e isso deve ser definido corretamente com base em seu uso. Por exemplo, todas as texturas da UI devem pertencer ao grupo de textura da UI.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Voltar ao Topp](#table-of-contents)**
 
 
 ## Contributors
@@ -1377,18 +1378,18 @@ Every texture has a Texture Group property used for LODing, and this should be s
 * [CosmoMyzrailGorynych](https://github.com/CosmoMyzrailGorynych)
 * [billymcguffin](https://github.com/billymcguffin)
 * [akenatsu](https://github.com/akenatsu)
+* [Paulo Henrique](https://github.com/vhopaulo1)
 
 ## License
 
 Copyright (c) 2016 Gamemakin LLC
 
-See [LICENSE](/LICENSE)
+Ver [LICENÇA](/LICENSE)
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Voltar ao Topo](#table-of-contents)**
 
 
-## Amendments
+## Emendas
 
-We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
+Recomendamos que você bifurque este guia e altere as regras para se adequar ao guia de estilo de sua equipe. Abaixo, você pode listar algumas alterações ao guia de estilo. Isso permite que você atualize periodicamente seu guia de estilo sem ter que lidar com conflitos de mesclagem.
 
-# };
