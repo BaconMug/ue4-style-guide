@@ -483,13 +483,13 @@ Os motivos para essa estrutura estão listados nas subseções a seguir.
 
 
 <a name="2.1"></a>
-<a name="structure-folder-names"><a>
+<a name="structure-folder-names"></a>
 ### 2.1 Folder Names
 	
 Essas são regras comuns para nomear qualquer pasta na estrutura de conteúdo.
 
 <a name="2.1.1"></a>
-#### 2.1.1 Always Use PascalCase[<sup>*</sup>](#terms-cases)
+#### 2.1.1 Sempre Use PascalCase[<sup>*</sup>](#terms-cases)
 
 PascalCase se refere a iniciar um nome com uma letra maiúscula e, em vez de usar espaços, todas as palavras seguintes também começam com uma letra maiúscula. Por exemplo, `DesertEagle`, `RocketPistol` e `ASeriesOfWords`.
 
@@ -510,7 +510,7 @@ Relacionado a isso, se o seu projeto tiver [problemas inexplicáveis](https://an
 Usar outros caracteres fora de `az`,` AZ` e `0-9`, como` @ `,` -`, `_`,`, `,` * `e` # `também pode levar a problemas inesperados e difícil rastrear em outras plataformas, Source Control e ferramentas de engenharia mais fracas.
 
 <a name="2.2"></a>
-<a name="structure-top-level"><a>
+<a name="structure-top-level"></a>
 ### 2.2 Use Uma Pasta De Nível Superior Para Assets Específicos Do Projeto
 
 Todos os assets de um projeto devem existir em uma pasta com o nome do projeto. Por exemplo, se o seu projeto se chama 'Generic Shooter', _todo_ o seu conteúdo deve existir em `Content/GenericShooter`.
@@ -551,7 +551,7 @@ Esse problema pode ser difícil de prever e de explicar. A pessoa que migra as m
 É neste ponto que se os master material para ambos os projetos forem incompatíveis de _qualquer maneira_, você corre o risco de quebrar possivelmente toda a biblioteca de materiais de um projeto, bem como quaisquer outras dependências que já possam ter sido migradas, simplesmente porque os assets não foram armazenados em uma pasta de nível superior. A simples migração de static meshs agora se torna uma tarefa muito díficil de se resolver.
 
 <a name="2.2.3"></a>
-#### 2.2.3 Samples, Templates, e Conteúdo dop Marketplace São Livres de Riscos
+#### 2.2.3 Samples, Templates, e Conteúdo do Marketplace São Livres de Riscos
 
 Uma extensão para [2.2.2](#2.2.2), se um membro da equipe decidir adicionar conteúdo de amostra, arquivos de templates ou assets que comprou no marketplace, isso é garantido, desde que a pasta de nível superior do seu projeto seja exclusivamente nomeado, esses novos ativos não interferirão em seu projeto.
 
